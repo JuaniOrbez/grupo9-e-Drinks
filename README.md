@@ -11,10 +11,10 @@ Dirigido al público en general, con principal enfoque en el segmento adulto jov
 
 ### Integrantes:
 Andrés Pando. 34 años, Argentina. Licenciado en Turismo, girando el timón hacia la programación full stack. 
-https://github.com/andrespando // https://www.linkedin.com/in/andrespando/
+https://github.com/andrespando / https://www.linkedin.com/in/andrespando/
 
 Juan Ignacio Orbez. 37 Años, Argentina. Licenciado en Administración de Empresas, Project Manager, Scrum Master.
-https://github.com/JuaniOrbez // https://www.linkedin.com/in/juan-ignacio-orbez-68807a64/
+https://github.com/JuaniOrbez / https://www.linkedin.com/in/juan-ignacio-orbez-68807a64/
 
 ### Sitios de referencia:
 https://www.fullescabio.com/ Web de uso fácil, buen diseño.
