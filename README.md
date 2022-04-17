@@ -1,19 +1,15 @@
 # grupo9-e-Drinks
 
-#E-Drinks
+## E-Drinks
 Tu lugar en el mundo para elegir y disfrutar de tus bebidas preferidas.
 
-##Descripción de la oferta de productos y/o servicios ofrecidos:
-
+### Descripción de la oferta de productos y/o servicios ofrecidos:
 Tienda de bebidas en general, accesorios para su consumo y servicio de delivery.
-Temática y público:
 
-##Público al que apunta el sitio:
-
+### Público al que apunta el sitio:
 Dirigido al público en general, con principal enfoque en el segmento adulto joven.
 
-##Integrantes:
-
+### Integrantes:
 Andrés Pando
 Licenciado en Turismo, girando el timón hacia la programación full stack.
 34 años, Argentina.
@@ -26,8 +22,7 @@ Licenciado en Administración de Empresa, Project Manager, Scrum Master,
 https://github.com/JuaniOrbez
 https://www.linkedin.com/in/juan-ignacio-orbez-68807a64/
 
-##Sitios de referencia:
-
+### Sitios de referencia:
 https://www.fullescabio.com/
 Web de uso fácil, buen diseño.
 
