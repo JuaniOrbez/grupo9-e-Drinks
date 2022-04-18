@@ -36,3 +36,6 @@ https://www.galpondebebidas.com.ar/ Divide la página en categorías de bebidas,
 http://www.puroescabio.com.ar/ Una vez ingresado el código postal, te dirige a la tienda que está muy bien visualmente y muestra todos sus productos.
 
 https://www.beermarket.com.ar/ Es dinámica y tiene su estilo propio. Mucha presencia de color verde para representar a la marca.
+
+## Tablero de trabajo
+Trello: https://trello.com/invite/b/KSgHKaYR/44016fc13be11fc1f305802044b5c625/proyectointegrador 
