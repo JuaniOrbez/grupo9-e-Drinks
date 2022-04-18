@@ -17,6 +17,7 @@ Juan Ignacio Orbez. 37 Años, Argentina. Licenciado en Administración de Empres
 https://github.com/JuaniOrbez / https://www.linkedin.com/in/juan-ignacio-orbez-68807a64/
 
 Ivan Donnenfeld. 18 años, Argentina. Director audiovisual estudiando en Digital House.
+https://github.com/ivo-29
 
 ### Sitios de referencia:
 https://www.fullescabio.com/ Web de uso fácil, buen diseño.
