@@ -16,6 +16,8 @@ https://github.com/andrespando / https://www.linkedin.com/in/andrespando/
 Juan Ignacio Orbez. 37 Años, Argentina. Licenciado en Administración de Empresas, Project Manager, Scrum Master.
 https://github.com/JuaniOrbez / https://www.linkedin.com/in/juan-ignacio-orbez-68807a64/
 
+Ivan Donnenfeld. 18 años, Argentina. Director audiovisual estudiando en Digital House.
+
 ### Sitios de referencia:
 https://www.fullescabio.com/ Web de uso fácil, buen diseño.
 
