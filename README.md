@@ -19,6 +19,9 @@ https://github.com/JuaniOrbez / https://www.linkedin.com/in/juan-ignacio-orbez-6
 Ivan Donnenfeld. 18 años, Argentina. Director audiovisual estudiando en Digital House.
 https://github.com/ivo-29
 
+Me llamo Catalina de Cabotau, soy Licenciada en Administración y Sistemas, actualmente trabajo en recursos humanos en la parte de adquisición de talento IT, y soy de Buenos Aires, Argentina :)
+https://github.com/catadecaboteau / https://www.linkedin.com/in/catalina-de-caboteau-488a42135/
+
 ### Sitios de referencia:
 https://www.fullescabio.com/ Web de uso fácil, buen diseño.
 
