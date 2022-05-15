@@ -25,18 +25,18 @@ app.get ("/", (req, res) =>{
 })
 
 app.get ("/productdetail", (req, res) =>{
-    res.render ('productDetail')
+    res.render ('./products/productDetail')
 })
 
 app.get ("/productcart", (req, res) =>{
-    res.render ('productCart')
+    res.render ('./products/productCart')
 })
 
 app.get ("/register", (req, res) =>{
-    res.render ('register')
+    res.render ('./users/register')
 })
 app.get ("/login", (req, res) =>{
-    res.render('login')
+    res.render('./users/login')
 })
 
 app.get ("*", (req, res) =>{
