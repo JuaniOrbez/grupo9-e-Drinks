@@ -5,19 +5,19 @@ const mainController = {
     },
 
     productDetail: (req, res) => {
-        res.render ('../products/productDetail')
+        res.render ('./products/productDetail')
     },
 
     productCart: (req, res) => {
-        res.render ('../products/productCart')
+        res.render ('./products/productCart')
     },
 
     register:  (req, res) => {
-        res.render ('../users/register')
+        res.render ('./users/register')
     },
 
     login: (req, res) => {
-        res.render('../users/login')
+        res.render('./users/login')
     },
 
     error: (req, res) => {
