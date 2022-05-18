@@ -6,34 +6,40 @@
 
     <main>
         <div class="contenedor">
-            <h2>Registrate</h2>
+            <h2>Vende un producto</h2>
             <form action="/" method="post" class="f-registro">
                 <div>
-                    <label>Nombre y apellido</label>
-                    <input type="text" name="nombre" placeholder="Leonardo DiCaprio" class="barra" required>
+                    <label>Nombre del producto</label>
+                    <input type="text" name="nombreProducto" placeholder="Iphone SE Second Generation" class="barra" required>
                 </div>
                 <div>
-                    <label>email</label>
-                    <input type="email" name="email" placeholder="Leodicaprio8@gmail.com" class="barra" required>
+                    <label>Descripcion</label>
+                    <textarea type=text name="descripcion" placeholder="Descripcion" class="barra" required></textarea>
                 </div>
                 <div>
-                    <label>¿Sos mayor de edad?</label>
-                    <label><input type="radio" name="tipo" value="si" required>Si</label>
-                    <label><input type="radio" name="tipo" value="no">No</label>
+                    <label>Imagen del producto</label>
+                    <input type="file" name="fotoDelProducto" required>
                 </div>
                 <div>
-                    <label>Domicilio</label>
-                    <input type="text" name="domicilio" placeholder="Calle 1234" class="barra" required>
+                    <label>Categoria</label>
+                    <label><input type="radio" name="tipo" value="whiskys" required>Whiskys</label>
+                    <label><input type="radio" name="tipo" value="espumantes">Espumantes</label>
+                    <label><input type="radio" name="tipo" value="cervezas" required>Cervezas</label>
+                    <label><input type="radio" name="tipo" value="gins">Gins</label>
+                    <label><input type="radio" name="tipo" value="vinos">Vinos</label>
+                    <label><input type="radio" name="tipo" value="licores">Licores</label>
                 </div>
                 <div>
-                    <label>Crea tu contraseña</label>
-                    <input type="password" name="contraseña" class="barra" placeholder="Contraseña" required>
+                    <label>Proporcion (ml)</label>
+                    <input type="text" name="proporcion" placeholder="500" class="barra" required>
                 </div>
-    <p>Al crear una cuenta estas aceptando los Términos y condiciones, Política de privacidad</p>
+                <div>
+                    <label>Precio ($)</label>
+                    <input type="text" name="precio" placeholder="700" class="barra" required>
+                </div>
     
                 <button type="reset" class="borrar">Borrar</button>
                 <button type="submit" class="enviar">Enviar</button>
-    <p>¿Ya tenes cuenta? <a href="./login">Iniciar sesión</a></p>
     
             </form>
         </div>

@@ -6,6 +6,10 @@ const productsController = {
 
     productCart: (req, res) => {
         res.render('./products/productCart')
+    },
+
+    productCreate: (req, res) => {
+        res.render('./products/productCreate')
     }
 }
 
