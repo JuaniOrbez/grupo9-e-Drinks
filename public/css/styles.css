@@ -126,6 +126,9 @@ header{
     color: black;
 }
 
+.iconos-header:hover{
+    color: black;
+}
 
 .burger-menu{
     width: 7%;
