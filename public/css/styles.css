@@ -116,8 +116,16 @@ header{
     text-align: center;
     margin-top: 8%;
     height: 30px;
+    color: inherit;
+    text-decoration: none;
     
 }
+
+.iconos-header{
+    text-decoration: none;
+    color: black;
+}
+
 
 .burger-menu{
     width: 7%;

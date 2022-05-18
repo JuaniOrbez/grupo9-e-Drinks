@@ -21,6 +21,7 @@ Actualizar el reposito de manera mas frecuente
 
 2.Hacer más.
 Aumentar frecuencia de las meetings
+resolver las consignas con al menos un dia de anticipacion para poder probar bien
 
 3.Continuar haciendo.
 Mantener los canales de comunicacion. Whatsapp, Discord. 
