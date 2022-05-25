@@ -6,10 +6,12 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const inOffer = products.filter(product => product.inOffer == 'YES');
+
 const mainController = {
 
     home: (req, res) => {
-        res.render ('home')
+        res.render ('home', {inOffer})
     },
    error: (req, res) => {
         res.status (404).send('Not Found 404')
