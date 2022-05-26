@@ -37,7 +37,24 @@ const productsController = {
     },
 
     productStore: (req, res) => {
-        // PENDIENTE RUTA POR POST
+
+        let image
+
+        if (req.files[0] != undefined){
+            image = req.files[0].filename
+        }
+
+        let newProduct = {
+        id: products[products.length -1].id + 1,
+        ...req.body,
+        image : image
+        }
+
+        products.push(newProduct)
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+
+        res.redirect('/products')
     },
 
     productDelete: (req, res) => {
