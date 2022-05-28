@@ -42,6 +42,8 @@ const productsController = {
 
         if (req.files[0] != undefined){
             image = req.files[0].filename
+        }else{
+            image = 'default-image.png'
         }
 
         let newProduct = {
@@ -54,7 +56,7 @@ const productsController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-        res.redirect('/products')
+        res.redirect('/products/detail')
     },
 
     productDelete: (req, res) => {
