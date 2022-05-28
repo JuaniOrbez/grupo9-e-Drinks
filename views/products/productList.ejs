@@ -9,22 +9,22 @@
 
     <main>
 
-        <h2>TODOS LOS PRODUCTOS</h2>
+        <h3 class="titulares">Productos</h3>
 
         <% products.forEach(product => { %>
 
-        <section class="container-similar-products">
-            <a href="/products/detail/<%= products.id %> ">
-                <article class="similar-product">
-                    <img src="/images/<%= products.image %>" alt="Imagen de producto" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"><%= products.name %></p>
-                    <p class="precios-producto-similar"><%= products.price %></p>
-                    <div class="container-button-psimilar">
-                        <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                    </div>
+            <section class="productos"> 
+                <article class="ofer-producto">
+                    <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
+                        <p class="descripciones-ofer-producto"><%= product.name %></p>
+                    <div class="ofer-precio-descuento">
+                        <p class="prod-precios"><%= product.price %></p>
+                        <div class="ofer-container-button-carrito">
+                                <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
+                        </div>
+                    </div>             
                 </article>
-            </a>
-        </section>
+                </section>  
 
         <% }) %> 
         
