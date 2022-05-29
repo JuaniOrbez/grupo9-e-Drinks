@@ -10,11 +10,11 @@
     <main>
         <section class="product-container">
             <div class="imagen-con-lupa">
-                <img src="/images/gin-hendricks.jpeg" alt="Imagen de Gin Hendricks" class="imagen-producto">
+                <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-producto">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
             </div>
             <div class="detalles-producto"> 
-                <p class="nombre-producto"> Gin Hendrick's Dry 700 ml </p>
+                <p class="nombre-producto"><%= product.name %></p>
                 <div class="half-rating">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -22,8 +22,8 @@
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                 </div>
-                <p class="precios"> $8.999 </p>
-                <p class="descripcion-producto"> La ginebra Hendrick's es una de las ginebras premium más populares. Se trata de una ginebra con un 44% de grado alcohólico, que se obtiene en remesas de 400 litros destilados en estos dos alambiques, más pequeños de lo habitual. Además esta destilación no se lleva a cabo sumergiendo los botánicos en alcohol, sino que se hace pasar el vapor a través de ellos para conseguir extraer mejor los aromas.</p>
+                <p class="precios"><%= product.price %></p>
+                <p class="descripcion-producto"><%= product.description %></p>
                 <div class="container-cantidad">
                     <label for="cantidad" class="label-cantidad">Cantidad</label>
                     <input  id="cantidades" type="number" name="cantidad" class="cantidades" value="1" min="0" max="10">
@@ -33,73 +33,20 @@
                 </div>
             </div>
         </section>
+        
         <p class="titulo-similar-products">Productos similares</p>
+
         <section class="container-similar-products">
             <article class="similar-product">
-                <img src="/images/gin-bombay.jpg" alt="Gin Bombay" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Bombay Sapphire 750 ml </p>
-                    <p class="precios-producto-similar"> $4.399 </p>
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-bulldog.png" alt="Gin Bulldog" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Bulldog London Dry Gin 700 ml </p>
-                    <p class="precios-producto-similar"> $4.859 </p>
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-tanqueray.png" alt="Gin Tanqueray" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Tanqueray 750ml London Dry  </p>
-                    <p class="precios-producto-similar"> $2.999 </p>  
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-beefeater.jpeg" alt="Gin Beefeater" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Beefeater 750ml </p>
-                    <p class="precios-producto-similar"> $3.699 </p>  
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-bombay.jpg" alt="Gin Bombay" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Bombay Sapphire 750 ml </p>
-                    <p class="precios-producto-similar"> $4.399 </p>
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-bulldog.png" alt="Gin Bulldog" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Bulldog London Dry Gin 700 ml </p>
-                    <p class="precios-producto-similar"> $4.859 </p>
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-tanqueray.png" alt="Gin Tanqueray" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Tanqueray 750ml London Dry  </p>
-                    <p class="precios-producto-similar"> $2.999 </p>  
-                <div class="container-button-psimilar">
-                    <input type="submit" value="Agregar al carrito" class="button-psimilar">
-                </div>
-            </article>
-            <article class="similar-product">
-                <img src="/images/gin-beefeater.jpeg" alt="Gin Beefeater" class="imagen-producto-similar">
-                    <p class="nombre-producto-similar"> Gin Beefeater 750ml </p>
-                    <p class="precios-producto-similar"> $3.699 </p>  
+                <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-producto-similar">
+                    <p class="nombre-producto-similar"><%= product.name %></p>
+                    <p class="precios-producto-similar"><%= product.price %></p>
                 <div class="container-button-psimilar">
                     <input type="submit" value="Agregar al carrito" class="button-psimilar">
                 </div>
             </article>
         </section>
+
     </main>
 
     <%- include('../partials/footer')%>
