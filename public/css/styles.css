@@ -82,6 +82,12 @@ header{
     margin-bottom: 1px;
     list-style:none;
     text-decoration: none;
+    font-weight: bold;
+}
+.style-link:hover {
+    font-weight: bolder;
+    color: black;
+    text-decoration: underline;
 }
 .busqueda{
     width: 50%;
@@ -178,7 +184,7 @@ header{
     color: black;
 }
 .titulo-footer {
-    font-weight: bolder;
+    font-weight: bold;
     margin-top: 5px;
     margin-bottom: 0.5px;
     padding: 5px 10px;
@@ -816,9 +822,8 @@ border:2px solid #333029;
 .f-registro button {
     border-radius: 5px;
     background-color: #eae0c2;
-    color: #FFF;
+    color: black;
     padding: 8px;
-    transition: all 450ms;
     margin: 10px 0px;
 }
 .enviar {
@@ -895,9 +900,8 @@ border:2px solid #333029;
 .log-form button {
     border-radius: 5px;
     background-color: #eae0c2;
-    color: #FFF;
+    color: black;
     padding: 8px;
-    transition: all 450ms;
     margin: 10px 0px;
 }
 .ingresar:hover {
