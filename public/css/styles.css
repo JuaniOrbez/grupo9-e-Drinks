@@ -40,13 +40,16 @@ header{
 
 }
 
-.logo{
+.container-logo{
     width: 30%;
     height: 50%;
-    margin-right:1%;
-    margin-top: 5.5%;
-    background-color: #EAE0C2;
+    margin-top: 6%;
+}
 
+.logo{
+    width: 100%;
+    margin-right:1%;
+    background-color: #EAE0C2;
 }
 
 .navBar{
@@ -911,9 +914,14 @@ border:2px solid #333029;
 @media (min-width:480px) {
 /* --------------------------------GENERAL----------------------------------------- */
 /* ---------------------------------------HEADER---------------------------------------- */
-    .logo{
-        width: 17%;
-        margin-top: 0.5%;
+   .container-logo{
+       width: 19%;
+       height: 80%;
+       margin-top: 0%;
+   } 
+   .logo{
+    width: 100%;    
+    height: 95%;
     }
 
     .busqueda{
@@ -936,7 +944,7 @@ border:2px solid #333029;
         display:block;
         width: 45%;
         margin-top: 0%;
-        
+        height: 50%;
     }
 
     .item{
@@ -977,9 +985,16 @@ border:2px solid #333029;
     @media (min-width:768px) {
     /* --------------------------------GENERAL----------------------------------------- */
 /* ---------------------------------------HEADER---------------------------------------- */
-    
+  .container-logo{
+      width: 19%;
+      height: 100%;
+      margin-top: 0%;
+      
+  }  
+
     .logo{
-    height: 68%;
+    width: 80%;    
+    height: 80%;
     }
     .cart-user{
         margin-top: 2%;
