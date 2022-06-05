@@ -20,6 +20,12 @@ const upload = multer({ storage: storage })
 
 
 router.get ("/",productsController.productList);
+router.get("/whiskys",productsController.whisky);
+router.get("/espumantes",productsController.espumante);
+router.get("/cervezas",productsController.cerveza);
+router.get("/gins",productsController.gin);
+router.get("/vinos",productsController.vino);
+router.get("/licores",productsController.licor);
 
 router.get ("/detail/:id/",productsController.productDetail);
 

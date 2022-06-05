@@ -4,12 +4,44 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const whisky = products.filter(product => product.category == 'Whisky');
+const espumante = products.filter(product => product.category == 'Espumante');
+const cerveza = products.filter(product => product.category == 'cerveza');
+const gin = products.filter(product => product.category == 'GIN');
+const vino = products.filter(product => product.category == 'Vino');
+const licor = products.filter(product => product.category == 'LICOR');
+
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
 
     productList: (req, res) => {
         res.render('./products/productList', {products})
+    },
+
+    whisky: (req,res) => {
+        res.render('./products/whiskys', {whisky})
+    },
+    
+    espumante: (req,res) => {
+        res.render('./products/espumantes', {espumante})
+    },
+
+    cerveza: (req,res) => {
+        res.render('./products/cervezas', {cerveza})
+    },
+
+    gin: (req,res) => {
+        res.render('./products/gins', {gin})
+    },
+
+    vino: (req,res) => {
+        res.render('./products/vinos', {vino})
+    },
+
+    licor: (req,res) => {
+        res.render('./products/licores', {licor})
     },
 
     productDetail: (req, res) => {
