@@ -122,13 +122,14 @@
                 <img src="/images/happyhour.jpg" alt="home banner" class="ofertas-banner">
             </section>
             <section class="ofertas"> 
+                <% inOffer.forEach(product => { %>
                 <article class="ofer-producto">
-                    <img src="/images/vino-rutini.png" alt="Imagen producto" class="imagen-ofer-producto">
+                    <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
             
-                        <p class="descripciones-ofer-producto">Vino Rutini</p>
+                        <p class="descripciones-ofer-producto"><%= product.name %></p>
                    
                     <div class="ofer-precio-descuento">
-                        <p class="ofer-precios">$6.770</p>
+                        <p class="ofer-precios"><%= product.price %></p>
                         <p class="descuentos">10%</p>
                         
                         <div class="ofer-container-button-carrito">
@@ -136,60 +137,19 @@
                         </div>
                     </div>             
                 </article>
-        
-            
-           
-                <article class="ofer-producto">
-                    <img src="/images/gin-hendricks.jpeg" alt="Imagen producto"  class="imagen-producto">
-                    <p class="descripciones-ofer-producto">Gin Hendricks</p>
-                    <div class="ofer-precio-descuento">
-                        <p class="ofer-precios">$6.770</p>
-                        <p class="descuentos">10%</p>
-                        
-                        <div class="ofer-container-button-carrito">
-                                <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
-                        </div>
-                    </div>
-                </article>
-            
-            
-            
-                <article class="ofer-producto">
-                    <img src="/images/whisky-jimBean.jpg" alt="Imagen producto"  class="imagen-producto">
-                    <p class="descripciones-ofer-producto">Whisky Jim Bean</p>
-                    <div class="ofer-precio-descuento">
-                        <p class="ofer-precios">$6.770</p>
-                        <p class="descuentos">10%</p>
-                        
-                        <div class="ofer-container-button-carrito">
-                                <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
-                        </div>
-                    </div>
-                </article>
-
-                <article class="ofer-producto">
-                    <img src="/images/champ-cristal.jpg" alt="Imagen producto"  class="imagen-producto">
-                    <p class="descripciones-ofer-producto">Champagne Cristal</p>
-                    <div class="ofer-precio-descuento">
-                        <p class="ofer-precios">$6.770</p>
-                        <p class="descuentos">10%</p>
-                        
-                        <div class="ofer-container-button-carrito">
-                                <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
-                        </div>
-                    </div>
-                </article>
+                <% }) %> 
             </section>
 
         <h3 class="titulares">Productos</h3>
         <section class="productos"> 
+            <% inHome.forEach(product => { %> 
             <article class="ofer-producto">
-                <img src="/images/vino-rutini.png" alt="Imagen producto"  class="imagen-ofer-producto">
+                <img src="/images/<%= product.image %>" alt="Imagen producto"  class="imagen-ofer-producto">
         
-                    <p class="descripciones-ofer-producto">Vino Rutini</p>
+                    <p class="descripciones-ofer-producto"><%= product.name %></p>
                
                 <div class="ofer-precio-descuento">
-                    <p class="prod-precios">$6.770</p>
+                    <p class="prod-precios"><%= product.price %></p>
                    
                     
                     <div class="ofer-container-button-carrito">
@@ -197,10 +157,10 @@
                     </div>
                 </div>             
             </article>
-    
+            <% }) %> 
         
        
-            <article class="ofer-producto">
+            <!-- <article class="ofer-producto">
                 <img src="/images/gin-hendricks.jpeg" alt="Imagen producto"  class="imagen-producto">
                 <p class="descripciones-ofer-producto">Gin Hendricks</p>
                 <div class="ofer-precio-descuento">
@@ -239,7 +199,7 @@
                             <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
                     </div>
                 </div>
-            </article>
+            </article> -->
         </section>
     
         </main>
