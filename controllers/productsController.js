@@ -88,7 +88,7 @@ const productsController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-        res.redirect('/products/detail')
+        res.redirect('/products')
     },
 
     productDelete: (req, res) => {
