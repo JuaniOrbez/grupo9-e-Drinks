@@ -11,9 +11,8 @@
 
         <h3 class="titulares">Productos</h3>
 
-        <% products.forEach(product => { %>
-
             <section class="productos"> 
+                <% products.forEach(product => { %>
                 <article class="ofer-producto">
                     <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
                         <p class="descripciones-ofer-producto"><%= product.name %></p>
@@ -24,9 +23,8 @@
                         </div>
                     </div>             
                 </article>
-                </section>  
-
-        <% }) %> 
+                <% }) %> 
+                </section>      
         
     </main>
 
