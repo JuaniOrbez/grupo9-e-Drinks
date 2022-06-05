@@ -92,7 +92,15 @@ const productsController = {
     },
 
     productDelete: (req, res) => {
-        // PENDIENTE RUTA POR DELETE
+        let id = req.params.id
+        
+        const indice = products.indexOf(products.find(product => product.id == id))
+
+        products.splice(indice,1)
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+
+        res.redirect('/products')
     },
 }
 module.exports = productsController

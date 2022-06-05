@@ -37,6 +37,6 @@ router.post ("/create", upload.any(), productsController.productStore);
 router.get ("/:id/edit", productsController.productEdit);
 router.put ("/:id/edit", productsController.productUpdate);
 
-//router.delete('delete/:id', productsController.productDelete); 
+router.delete('/:id/delete', productsController.productDelete); 
 
 module.exports = router;
