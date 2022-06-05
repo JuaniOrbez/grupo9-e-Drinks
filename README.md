@@ -10,7 +10,7 @@ e-commerce de bebidas en general, accesorios para su consumo y servicio de deliv
 Dirigido al público en general, con principal enfoque en el segmento adulto joven.
 
 ### Integrantes:
-Andrés Pando. 34 años, Argentina. Licenciado en Turismo, girando el timón hacia la programación full stack. 
+Andrés Pando. Desde Argentina. Licenciado en Turismo, girando el timón hacia la programación full stack. 
 https://github.com/andrespando / https://www.linkedin.com/in/andrespando/
 
 Juan Ignacio Orbez. 37 Años, Argentina. Licenciado en Administración de Empresas, Project Manager, Scrum Master.
