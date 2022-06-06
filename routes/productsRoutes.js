@@ -35,7 +35,7 @@ router.get ("/create", productsController.productCreate);
 router.post ("/create", upload.any(), productsController.productStore);
 
 router.get ("/:id/edit", productsController.productEdit);
-router.put ("/:id/edit", productsController.productUpdate);
+router.put ("/:id/edit", upload.any(), productsController.productUpdate);
 
 router.delete('/:id/delete', productsController.productDelete); 
 

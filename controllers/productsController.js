@@ -17,37 +17,37 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productsController = {
 
     productList: (req, res) => {
-        res.render('./products/productList', {products})
+        res.render('./products/productList', { products })
     },
 
-    whisky: (req,res) => {
-        res.render('./products/whiskys', {whisky})
-    },
-    
-    espumante: (req,res) => {
-        res.render('./products/espumantes', {espumante})
+    whisky: (req, res) => {
+        res.render('./products/whiskys', { whisky })
     },
 
-    cerveza: (req,res) => {
-        res.render('./products/cervezas', {cerveza})
+    espumante: (req, res) => {
+        res.render('./products/espumantes', { espumante })
     },
 
-    gin: (req,res) => {
-        res.render('./products/gins', {gin})
+    cerveza: (req, res) => {
+        res.render('./products/cervezas', { cerveza })
     },
 
-    vino: (req,res) => {
-        res.render('./products/vinos', {vino})
+    gin: (req, res) => {
+        res.render('./products/gins', { gin })
     },
 
-    licor: (req,res) => {
-        res.render('./products/licores', {licor})
+    vino: (req, res) => {
+        res.render('./products/vinos', { vino })
+    },
+
+    licor: (req, res) => {
+        res.render('./products/licores', { licor })
     },
 
     productDetail: (req, res) => {
         let id = req.params.id
-		let product = products.find(product => product.id == id)
-		res.render('./products/productDetail', {product})
+        let product = products.find(product => product.id == id)
+        res.render('./products/productDetail', { product })
     },
 
     productCart: (req, res) => {
@@ -60,28 +60,55 @@ const productsController = {
 
     productEdit: (req, res) => {
         let id = req.params.id
-		let product = products.find(product => product.id == id)
-        res.render('./products/productEdit', {product})
+        let product = products.find(product => product.id == id)
+        res.render('./products/productEdit', { product })
     },
 
     productUpdate: (req, res) => {
-        // PENDIENTE RUTA POR PUT
+        let id = req.params.id
+        let productToEdit = products.find(product => product.id == id)
+
+        let image
+        if (req.files[0] != undefined) {
+            image = req.files[0].filename
+        } else {
+            image = productToEdit.image
+        }
+
+        productToEdit = { 
+            id: productToEdit.id,
+            ...req.body,
+            image: image,
+        }
+
+        let modificar = products.map(newInfo => {
+
+            if (newInfo.id == productToEdit.id) {
+
+                return newInfo = {...productToEdit }
+            }
+            return newInfo
+        })
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(modificar));
+
+        res.redirect('/products/detail/' + productToEdit.id)
     },
 
     productStore: (req, res) => {
 
         let image
 
-        if (req.files[0] != undefined){
+        if (req.files[0] != undefined) {
             image = req.files[0].filename
-        }else{
+        } else {
             image = 'default-image.png'
         }
 
         let newProduct = {
-        id: products[products.length -1].id + 1,
-        ...req.body,
-        image : image
+            id: products[products.length - 1].id + 1,
+            ...req.body,
+            image: image
         }
 
         products.push(newProduct)
@@ -93,10 +120,10 @@ const productsController = {
 
     productDelete: (req, res) => {
         let id = req.params.id
-        
+
         const indice = products.indexOf(products.find(product => product.id == id))
 
-        products.splice(indice,1)
+        products.splice(indice, 1)
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
 

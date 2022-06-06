@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head')%> 
+    <%- include('../partials/head', {title: 'Editando: ' + product.name}) %> 
 <body>
     <%- include('../partials/header')%> 
 
     <main>
         <div class="contenedor">
-            <h2>Editar un producto</h2>
-            <form action="/" method="POST" class="f-registro">
+            <h2>Editando <%=product.name %></h2>
+            <form action="/products/<%=product.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="f-registro">
                 <div>
                     <label>Nombre del producto</label>
-                    <input type="text" name="productName" placeholder="Vino tinto Malbec" class="barra" required>
+                    <input type="text" name="name" value= "<%= product.name %>" class="barra" required>
                 </div>
                 <div>
                     <label>Descripcion</label>
-                    <textarea type=text name="descripcion" placeholder="Descripcion" class="barra" required></textarea>
+                    <textarea type=text name="description" class="barra" required><%= product.description %></textarea>
                 </div>
                 <div>
+                    <img src="/images/<%= product.image %>" style="width:100px">
                     <label>Imagen del producto</label>
-                    <input type="file" name="productImage" required>
+                    <input type="file" name="productImage">
                 </div>
                 <div>
                     <label>Categoria</label>
-                    <label><input type="radio" name="tipo" value="whiskys" required>Whiskys</label>
-                    <label><input type="radio" name="tipo" value="espumantes">Espumantes</label>
-                    <label><input type="radio" name="tipo" value="cervezas" required>Cervezas</label>
-                    <label><input type="radio" name="tipo" value="gins">Gins</label>
-                    <label><input type="radio" name="tipo" value="vinos">Vinos</label>
-                    <label><input type="radio" name="tipo" value="licores">Licores</label>
+                    <label><input type="radio" name="category" value="whiskys">Whiskys</label>
+                    <label><input type="radio" name="category" value="espumantes">Espumantes</label>
+                    <label><input type="radio" name="category" value="cervezas">Cervezas</label>
+                    <label><input type="radio" name="category" value="gins">Gins</label>
+                    <label><input type="radio" name="category" value="vinos">Vinos</label>
+                    <label><input type="radio" name="category" value="licores">Licores</label>
+                </div>
+                <div>
+                    <label for="inOffer">En Oferta</label>
+                    <label><input type="radio" name="inOffer" value="YES" >Si</label>
+                    <label><input type="radio" name="inOffer" value="NO">No</label>
+                </div>
+                <div>
+                    <label for="inHome">Publicar en home</label>
+                    <label><input type="radio" name="inHome" value="YES" >Si</label>
+                    <label><input type="radio" name="inHome" value="NO">No</label>
                 </div>
                 <div>
                     <label>Proporcion (ml)</label>
-                    <input type="text" name="size" placeholder="500" class="barra" required>
+                    <input type="text" name="size" value=<%=product.size%> class="barra" required>
                 </div>
                 <div>
                     <label>Precio ($)</label>
-                    <input type="text" name="price" placeholder="700" class="barra" required>
+                    <input type="text" name="price" value=<%=product.price%> class="barra" required>
                 </div>
     
-                <button type="reset" class="borrar">Borrar</button>
-                <button type="submit" class="enviar">Enviar</button>
+                <button type="reset" class="borrar">Borrar cambios</button>
+                <button type="submit" class="enviar">Guardar cambios</button>
     
             </form>
         </div>
