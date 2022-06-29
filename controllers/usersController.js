@@ -18,10 +18,11 @@ const usersController = {
         if(userToLogin) {
             let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if(passwordIsOk) {
+
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
-                    return res.redirect('/')
-            }
+                    return res.redirect('/users/profile')
+                }
         }
         return res.render('./users/login', {
             errors: {
@@ -31,6 +32,9 @@ const usersController = {
             }
         });
 },
+	profile:  (req, res) => {
+        res.render('./users/profile')
+    },
 
     create: (req, res) => {
 
