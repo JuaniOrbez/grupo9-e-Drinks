@@ -26,6 +26,7 @@ const validationsUsersRegister = [
     body("email").isEmail().withMessage("Debes ingresar un email válido"),
     body("password").notEmpty().withMessage("Debes ingresar una contraseña"),
     body("category").notEmpty().withMessage("Debes seleccionar una categoría"),
+    body("age").notEmpty().withMessage("Debes seleccionar una opción"),
 ];
 
 router.get ("/register",usersController.register);
