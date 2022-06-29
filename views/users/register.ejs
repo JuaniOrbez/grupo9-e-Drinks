@@ -76,8 +76,8 @@
                 </div>
                 <div>
                     <label>¿Sos mayor de edad?</label>
-                    <label><input type="radio" name="age" value="<%= locals.oldData ? oldData.age : null %>">Si</label>
-                    <label><input type="radio" name="age" value="<%= locals.oldData ? oldData.age : null %>">No</label>
+                    <label><input type="radio" name="age" value="si">Si</label>
+                    <label><input type="radio" name="age" value="no">No</label>
                     <% if (locals.errors && errors.age) { %>
                         <div class="text-danger">
                             <%= errors.age.msg %> 
