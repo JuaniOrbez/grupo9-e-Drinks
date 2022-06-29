@@ -16,7 +16,10 @@ const usersController = {
         let userToLogin = User.findByField('email', req.body.email);
 
         if(userToLogin) {
-
+            let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+            if(passwordIsOk) {
+                    return res.send('Ok, puedes ingresar')
+            }
         }
         return res.render('./users/login', {
             errors: {
