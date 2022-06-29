@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <label>Contraseña</label>
-                    <input type="password" name="password" class="barra" value="<%= locals.oldData ? oldData.password : null %>">
+                    <input type="password" name="password" class="barra">
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %> 
@@ -68,6 +68,11 @@
                 <div>
                     <label for="image">Imagen de Usuario</label>
                     <input type="file" name="image" id="image">
+                    <% if (locals.errors && errors.image) { %>
+                        <div class="text-danger">
+                            <%= errors.image.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label>¿Sos mayor de edad?</label>
@@ -85,7 +90,7 @@
                
                 <button type="submit" class="enviar">Registrarse</button>
             
-    <p>¿Ya tenes cuenta? <a href="./users/login">Iniciar sesión</a></p>
+    <p>¿Ya tenes cuenta? <a href="./login">Iniciar sesión</a></p>
     
             </form>
         </div>
