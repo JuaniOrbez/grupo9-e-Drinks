@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { all } = require('../routes/usersRoutes');
 
 const User = {
 
@@ -43,8 +42,9 @@ const User = {
         }
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ''));
-        return true;
+        return newUser;
     },
+
     delete: function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);
