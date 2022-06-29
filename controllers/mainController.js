@@ -12,7 +12,7 @@ const inHome = products.filter(product => product.inHome == 'YES');
 const mainController = {
 
     home: (req, res) => {
-        res.render ('home', {inOffer,inHome})
+        res.render ('home', {inOffer,inHome},)
     },
    error: (req, res) => {
         res.status (404).send('Not Found 404')
