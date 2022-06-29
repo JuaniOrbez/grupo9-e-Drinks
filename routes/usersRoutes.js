@@ -3,7 +3,7 @@ const router = express.Router();
 
 const usersController = require ('../controllers/usersController');
 
-<<<<<<< HEAD
+
 const storage = multer.diskStorage({
 
     destination: (req, file, cb) => {
