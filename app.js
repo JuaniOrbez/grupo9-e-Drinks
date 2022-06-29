@@ -1,7 +1,11 @@
 const express = require('express');
 const session = require('express-session');
 
+
 const app = express();
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
 
 const path = require('path')
 const methodOverride =  require('method-override');
@@ -18,6 +22,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
+
+app.use(userLoggedMiddleware);
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

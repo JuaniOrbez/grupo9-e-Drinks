@@ -135,6 +135,12 @@ header{
     color: black;
 }
 
+.register-log-header{
+    text-decoration: none;
+    color: black;
+    display: none
+}
+
 .iconos-header:hover{
     color: black;
 }
@@ -938,13 +944,13 @@ border:2px solid #333029;
     }
 
     .busqueda{
-        width: 28%;
+        width: 20%;
         margin-top: 1.5%;
     }
   
 
     .cart-user{
-        width: 8%;
+        width: 16%;
         margin-top: 2%;
     }
     
@@ -1243,6 +1249,12 @@ border:2px solid #333029;
     margin: 7% 15%;
     width: 70%;
 }
+
+.register-log-header{
+    
+    display: inline-block
+}
+
 /* ----------------------------------------------REGISTER---------------------------------------------- */
 .f-registro {
     width: 30%;

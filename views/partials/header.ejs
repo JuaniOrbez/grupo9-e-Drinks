@@ -20,7 +20,13 @@
         </div>
         
         <div class="cart-user"> 
-            <a class="iconos-header" href="../users/login"><i class="fa-solid fa-user"></i></a>
+            <% if (locals.isLogged) {%> 
+            <a class="iconos-header" href="../users/profile"><i class="fa-solid fa-user"></i> <%=user.first_name%> </a>
+            <% }else { %> 
+            <a class="register-log-header" href="../users/register">Register</a>
+            
+            <a class="register-log-header" href="../users/login">Login</a>
+            <% } %> 
             <a class="iconos-header" href="#"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
 
