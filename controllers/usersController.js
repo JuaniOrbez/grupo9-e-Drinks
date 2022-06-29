@@ -18,6 +18,8 @@ const usersController = {
         if(userToLogin) {
             let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if(passwordIsOk) {
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin;
                     return res.redirect('/')
             }
         }
