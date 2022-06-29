@@ -43,7 +43,7 @@ const usersController = {
         const resultValidation = validationResult(req);
 		
 		if (resultValidation.errors.length > 0) {
-			return res.render('register', {
+			return res.render('./users/register', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
@@ -52,7 +52,7 @@ const usersController = {
 		let userInDB = User.findByField('email', req.body.email);
 
 		if (userInDB) {
-			return res.render('register', {
+			return res.render('./users/register', {
 				errors: {
 					email: {
 						msg: "Este email ya está registrado"

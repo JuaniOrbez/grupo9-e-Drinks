@@ -11,27 +11,59 @@
             <form action="/users/register" method="POST" enctype="multipart/form-data" class="f-registro">
                 <div>
                     <label>Nombre</label>
-                    <input type="text" name="first_name"  class="barra">
+                    <input type="text" name="first_name"  class="barra" value="<%= locals.oldData ? oldData.first_name : null %>">
+                    <% if (locals.errors && errors.first_name) { %>
+                        <div class="text-danger">
+                            <%= errors.first_name.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label>Apellido</label>
-                    <input type="text" name="last_name"class="barra">
+                    <input type="text" name="last_name"class="barra" value="<%= locals.oldData ? oldData.last_name : null %>">
+                    <% if (locals.errors && errors.last_name) { %>
+                        <div class="text-danger">
+                            <%= errors.last_name.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="email" name="email"  class="barra">
+                    <input type="email" name="email"  class="barra" value="<%= locals.oldData ? oldData.email : null %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label>Contraseña</label>
-                    <input type="password" name="password" class="barra">
+                    <input type="password" name="password" class="barra" value="<%= locals.oldData ? oldData.password : null %>">
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label for="category">Categoría</label>
                     <select name="category" id="category">
                         <option value="">Seleccione una opción</option>
-                        <option value="usuario">Usuario</option>
-                        <option value="administrador">Administrador</option>
+                        <% 
+                        let options = ["Usuario", "Administrador"]
+                        %>
+                        <% for (const oneOption of options) { %> 
+                        <option 
+                        value="<%= oneOption %>"
+                        <%= locals.oldData && (oneOption === oldData.category) ? 'selected' : null %>
+                        > <%= oneOption %> </option>
+                        <% } %>
                     </select>
+                   <% if (locals.errors && errors.category) { %>
+                        <div class="text-danger">
+                            <%= errors.category.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div>
                     <label for="image">Imagen de Usuario</label>
@@ -39,8 +71,13 @@
                 </div>
                 <div>
                     <label>¿Sos mayor de edad?</label>
-                    <label><input type="radio" name="adult" value="si">Si</label>
-                    <label><input type="radio" name="not_adult" value="no">No</label>
+                    <label><input type="radio" name="age" value="<%= locals.oldData ? oldData.age : null %>">Si</label>
+                    <label><input type="radio" name="age" value="<%= locals.oldData ? oldData.age : null %>">No</label>
+                    <% if (locals.errors && errors.age) { %>
+                        <div class="text-danger">
+                            <%= errors.age.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                
             
@@ -48,7 +85,7 @@
                
                 <button type="submit" class="enviar">Registrarse</button>
             
-    <p>¿Ya tenes cuenta? <a href="./login">Iniciar sesión</a></p>
+    <p>¿Ya tenes cuenta? <a href="./users/login">Iniciar sesión</a></p>
     
             </form>
         </div>
