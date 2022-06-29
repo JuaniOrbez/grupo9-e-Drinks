@@ -29,7 +29,9 @@ const validationsUsersRegister = [
     body("age").notEmpty().withMessage("Debes seleccionar una opción"),
 ];
 
-router.get ("/register",usersController.register);
+const guestMiddleware = require('../middlewares/guestMiddleware')
+
+router.get ("/register",guestMiddleware ,usersController.register);
 router.post("/register", upload.single("image"), validationsUsersRegister, usersController.create);
 
 router.get ("/login",usersController.login);
