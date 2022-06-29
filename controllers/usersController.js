@@ -18,7 +18,7 @@ const usersController = {
         if(userToLogin) {
             let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if(passwordIsOk) {
-                    return res.redirect('/')
+                    return res.redirect('/users/profile')
             }
         }
         return res.render('./users/login', {
@@ -29,6 +29,9 @@ const usersController = {
             }
         });
 },
+	profile:  (req, res) => {
+        res.render('./users/profile')
+    },
 
     create: (req, res) => {
 
