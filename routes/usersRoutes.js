@@ -23,10 +23,26 @@ const upload = multer({ storage: storage })
 const validationsUsersRegister = [
     body("first_name").notEmpty().withMessage("Debes ingresar un nombre"),
     body("last_name").notEmpty().withMessage("Debes ingresar un apellido"),
-    body("email").isEmail().withMessage("Debes ingresar un email válido"),
+    body("email")
+      .notEmpty().withMessage("Debes ingresar un email").bail()
+      .isEmail().withMessage("Debes ingresar un formato de email válido"),
     body("password").notEmpty().withMessage("Debes ingresar una contraseña"),
     body("category").notEmpty().withMessage("Debes seleccionar una categoría"),
     body("age").notEmpty().withMessage("Debes seleccionar una opción"),
+    body('image').custom((value, { req }) => {
+      let file = req.file;
+      let acceptedExtensions = ['.jpg', '.png', '.gif'];
+  
+      if (!file) {
+        throw new Error('Debes subir una imagen');
+      } else {
+        let fileExtension = path.extname(file.originalname);
+        if (!acceptedExtensions.includes(fileExtension)) {
+          throw new Error(`Los formatos de archivos permitidos son ${acceptedExtensions.join(', ')}`);
+        }
+      }
+      return true;
+    })
 ];
 
 const guestMiddleware = require('../middlewares/guestMiddleware')
