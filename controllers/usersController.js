@@ -33,7 +33,9 @@ const usersController = {
         });
 },
 	profile:  (req, res) => {
-        res.render('./users/profile')
+        res.render('./users/profile', {
+            user:req.session.userLogged
+        })
     },
 
     create: (req, res) => {
