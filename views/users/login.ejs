@@ -12,6 +12,11 @@
                         <label>email</label>
                         <input type="email" name="email" placeholder="Leodicaprio8@gmail.com" class="barra" required>
                     </div>
+                    <% if (locals.errors && errors.email) { %>
+                        <div>
+                            <%= errors.email.msg %>
+                        </div>
+                    <% } %>
                     <div>
                         <label>Contraseña</label>
                         <input type="password" name="contraseña" class="barra" placeholder="Contraseña" required>

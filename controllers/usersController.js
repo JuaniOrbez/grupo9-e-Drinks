@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const User = require('../data/models/User');
+const User = require('../models/User');
 
 const usersController = {
 
@@ -10,6 +10,21 @@ const usersController = {
     login: (req, res) => {
         res.render('./users/login')
     },
+
+    loginProcess: (req, res) => {
+        let userToLogin = User.findByField('email', req.body.email);
+
+        if(userToLogin) {
+
+        }
+        return res.render('./users/login', {
+            errors: {
+                email: {
+                    msg: 'No se encuentra este email en el sistema'
+                }
+            }
+        });
+},
 
     create: (req, res) => {
 

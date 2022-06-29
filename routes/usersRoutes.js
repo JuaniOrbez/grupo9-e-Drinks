@@ -32,6 +32,7 @@ router.get ("/register",usersController.register);
 router.post("/register", upload.single("image"), validationsUsersRegister, usersController.create);
 
 router.get ("/login",usersController.login);
+router.post("/login", usersController.loginProcess);
 
   
 module.exports = router;

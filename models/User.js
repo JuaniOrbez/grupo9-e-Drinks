@@ -1,9 +1,9 @@
 const fs = require('fs');
-const { all } = require('../../routes/usersRoutes');
+const { all } = require('../routes/usersRoutes');
 
 const User = {
 
-    fileName: './database/users.json',
+    fileName: './data/users.json',
 
     getData: function () {
         return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
