@@ -7,36 +7,47 @@
     <main>
         <div class="contenedor">
             <h2>Registrate</h2>
-            <form action="/" method="post" class="f-registro">
+            
+            <form action="/users/register" method="POST" enctype="multipart/form-data" class="f-registro">
                 <div>
                     <label>Nombre</label>
-                    <input type="text" name="nombre" placeholder="Leonardo" class="barra" required>
+                    <input type="text" name="first_name"  class="barra">
                 </div>
                 <div>
                     <label>Apellido</label>
-                    <input type="text" name="nombre" placeholder="DiCaprio" class="barra" required>
+                    <input type="text" name="last_name"class="barra">
                 </div>
                 <div>
-                    <label>email</label>
-                    <input type="email" name="email" placeholder="Leodicaprio8@gmail.com" class="barra" required>
+                    <label>Email</label>
+                    <input type="email" name="email"  class="barra">
+                </div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="barra">
+                </div>
+                <div>
+                    <label for="category">Categoría</label>
+                    <select name="category" id="category">
+                        <option value="">Seleccione una opción</option>
+                        <option value="usuario">Usuario</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="image">Imagen de Usuario</label>
+                    <input type="file" name="image" id="image">
                 </div>
                 <div>
                     <label>¿Sos mayor de edad?</label>
-                    <label><input type="radio" name="tipo" value="si" required>Si</label>
-                    <label><input type="radio" name="tipo" value="no">No</label>
+                    <label><input type="radio" name="adult" value="si">Si</label>
+                    <label><input type="radio" name="not_adult" value="no">No</label>
                 </div>
-                <div>
-                    <label>Domicilio</label>
-                    <input type="text" name="domicilio" placeholder="Calle 1234" class="barra" required>
-                </div>
-                <div>
-                    <label>Crea tu contraseña</label>
-                    <input type="password" name="contraseña" class="barra" placeholder="Contraseña" required>
-                </div>
-    <p>Al crear una cuenta estas aceptando los Términos y condiciones, Política de privacidad</p>
-    
-                <button type="reset" class="borrar">Borrar</button>
-                <button type="submit" class="enviar">Enviar</button>
+               
+            
+    <p>Al crear una cuenta estás aceptando los términos y condiciones y la política de privacidad.</p>
+               
+                <button type="submit" class="enviar">Registrarse</button>
+            
     <p>¿Ya tenes cuenta? <a href="./login">Iniciar sesión</a></p>
     
             </form>
