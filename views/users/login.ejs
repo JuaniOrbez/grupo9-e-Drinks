@@ -11,16 +11,18 @@
                     <div>
                         <label>email</label>
                         <input type="email" name="email" placeholder="Leodicaprio8@gmail.com" class="barra" required>
+                       
+                    </div> 
+                    
+                    <div>
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="barra" placeholder="Contraseña" required>
                     </div>
                     <% if (locals.errors && errors.email) { %>
-                        <div>
+                        <div class="text-danger">
                             <%= errors.email.msg %>
                         </div>
                     <% } %>
-                    <div>
-                        <label>Contraseña</label>
-                        <input type="password" name="contraseña" class="barra" placeholder="Contraseña" required>
-                    </div>
                     <button type="submit" class="enviar">Ingresa</button>
                     <p>¿No tenes una cuenta? <a href="./register">Registrate</a></p>
                 </form>

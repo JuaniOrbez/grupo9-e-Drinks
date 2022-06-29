@@ -18,13 +18,13 @@ const usersController = {
         if(userToLogin) {
             let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if(passwordIsOk) {
-                    return res.send('Ok, puedes ingresar')
+                    return res.redirect('/')
             }
         }
         return res.render('./users/login', {
             errors: {
                 email: {
-                    msg: 'No se encuentra este email en el sistema'
+                    msg: 'Credenciales invalidas, por favor chequea tu usuario y contraseña'
                 }
             }
         });
