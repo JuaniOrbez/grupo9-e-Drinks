@@ -17,37 +17,37 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productsController = {
 
     productList: (req, res) => {
-        res.render('./products/productList', { products })
+        res.render('./products/productList', { products,user:req.session.userLogged })
     },
 
     whisky: (req, res) => {
-        res.render('./products/whiskys', { whisky })
+        res.render('./products/whiskys', { whisky,user:req.session.userLogged })
     },
 
     espumante: (req, res) => {
-        res.render('./products/espumantes', { espumante })
+        res.render('./products/espumantes', { espumante,user:req.session.userLogged })
     },
 
     cerveza: (req, res) => {
-        res.render('./products/cervezas', { cerveza })
+        res.render('./products/cervezas', { cerveza,user:req.session.userLogged })
     },
 
     gin: (req, res) => {
-        res.render('./products/gins', { gin })
+        res.render('./products/gins', { gin,user:req.session.userLogged })
     },
 
     vino: (req, res) => {
-        res.render('./products/vinos', { vino })
+        res.render('./products/vinos', { vino,user:req.session.userLogged })
     },
 
     licor: (req, res) => {
-        res.render('./products/licores', { licor })
+        res.render('./products/licores', { licor,user:req.session.userLogged })
     },
 
     productDetail: (req, res) => {
         let id = req.params.id
         let product = products.find(product => product.id == id)
-        res.render('./products/productDetail', { product })
+        res.render('./products/productDetail', { product,user:req.session.userLogged })
     },
 
     productCart: (req, res) => {
@@ -55,13 +55,13 @@ const productsController = {
     },
 
     productCreate: (req, res) => {
-        res.render('./products/productCreate')
+        res.render('./products/productCreate', {user:req.session.userLogged })
     },
 
     productEdit: (req, res) => {
         let id = req.params.id
         let product = products.find(product => product.id == id)
-        res.render('./products/productEdit', { product })
+        res.render('./products/productEdit', { product,user:req.session.userLogged })
     },
 
     productUpdate: (req, res) => {
@@ -92,7 +92,7 @@ const productsController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(modificar));
 
-        res.redirect('/products/detail/' + productToEdit.id)
+        res.redirect('/products/detail/' + productToEdit.id, {user:req.session.userLogged})
     },
 
     productStore: (req, res) => {
@@ -115,7 +115,7 @@ const productsController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-        res.redirect('/products')
+        res.redirect('/products', {user:req.session.userLogged})
     },
 
     productDelete: (req, res) => {
@@ -127,7 +127,7 @@ const productsController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-        res.redirect('/products')
+        res.redirect('/products',{user:req.session.userLogged})
     },
 }
 module.exports = productsController
