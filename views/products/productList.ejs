@@ -15,7 +15,7 @@
                 <% products.forEach(product => { %>
                 <article class="ofer-producto">
                     <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
-                        <p class="descripciones-ofer-producto"><%= product.name %></p>
+                        <p class="descripciones-ofer-producto"><a href="/products/detail/<%= product.id %>"><%= product.name %></p></a>
                     <div class="ofer-precio-descuento">
                         <p class="prod-precios"><%= product.price %></p>
                         <div class="ofer-container-button-carrito">
