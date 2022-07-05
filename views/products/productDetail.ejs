@@ -29,11 +29,12 @@
                     <input id="cantidades" type="number" name="cantidad" class="cantidades" value="1" min="0" max="10">
                 </div>
                 <div class="container-button-carrito">
-                    <input type="submit" value="Agregar al carrito" class="button-carrito">
+                    <div>
+                        <a href="/products/cart"><input type="submit" value="Agregar al carrito"class="button-carrito"></a>
+                        <a href="/products/<%= product.id %>/edit"><input type="submit" value="Editar producto"class="button-carrito"></a>
+                    </div>
                 </div>
-                <div class="container-button-carrito">
-                    <a href="/products/<%= product.id %>/edit"><input type="submit" value="Editar          " class="button-carrito"></a>
-                </div>
+            </div>
             </div>
         </section>
 
@@ -42,7 +43,8 @@
         <section class="container-similar-products">
             <article class="similar-product">
                 <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-producto-similar">
-                <p class="nombre-producto-similar"><%= product.name %></p>
+                <p class="nombre-producto-similar"><a href="/products/detail/<%= product.id %>"><%= product.name %></p>
+                </a>
                 <p class="precios-producto-similar"><%= product.price %></p>
                 <div class="container-button-psimilar">
                     <input type="submit" value="Agregar al carrito" class="button-psimilar">
