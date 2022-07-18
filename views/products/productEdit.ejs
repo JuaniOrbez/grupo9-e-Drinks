@@ -48,12 +48,12 @@
                     <label>Precio ($)</label>
                     <input type="text" name="price" value=<%=product.price%> class="barra" required>
                 </div>
-    
                 <button type="submit" class="enviar">Guardar cambios</button>
             </form>
             <form action="/products/<%=product.id%>/delete?_method=DELETE" method="POST" class="f-registro">
                 <button type="submit" class="borrar">Borrar producto</button>
             </form>
+           
         </div>
     
     </main>

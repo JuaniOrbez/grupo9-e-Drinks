@@ -16,7 +16,6 @@ const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 
-
 app.use(session({
     secret: "secreto",
     resave: false,

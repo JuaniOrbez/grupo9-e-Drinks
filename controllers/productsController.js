@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+//const db = require('../database/models');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -11,14 +12,13 @@ const gin = products.filter(product => product.category == 'GIN');
 const vino = products.filter(product => product.category == 'Vino');
 const licor = products.filter(product => product.category == 'LICOR');
 
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
 
     productList: (req, res) => {
-        res.render('./products/productList', { products,user:req.session.userLogged })
-    },
+         res.render('./products/productList', { products,user:req.session.userLogged })
+     },
 
     whisky: (req, res) => {
         res.render('./products/whiskys', { whisky,user:req.session.userLogged })
