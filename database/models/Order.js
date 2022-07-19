@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: "order",
         timestamps: false,
+        underscored: true,
     };
 
     const Order = sequelize.define(alias, cols, config);

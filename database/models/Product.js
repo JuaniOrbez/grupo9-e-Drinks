@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         } ,
         description: {
-            type: DataTypes.LONGTEXT,
+            type: DataTypes.STRING(10000),
             allowNull: true,
         } ,
         category_id: {
@@ -44,8 +44,9 @@ module.exports = (sequelize, DataTypes) => {
     };
     
     let config = {
-        tableName: "products",
         timestamps: false,
+        underscored: true,
+        
     };
 
     const Product = sequelize.define(alias, cols, config);
