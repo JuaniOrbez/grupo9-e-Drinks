@@ -31,25 +31,25 @@ module.exports = (sequelize, DataTypes) => {
     const Cart = sequelize.define(alias, cols, config);
 
     Cart.associate = function (models) {
-        Cart.hasOne(User, {
+        Cart.hasOne(models.User, {
             foreignKey: "user_id",
             as: "user"
         })
     }
 
-    Cart.associate = function (models) {
-        Cart.hasMany(Order, {
-            foreignKey: "cart_id",
-            as: "order"
-        })
-    }
+      Cart.associate = function (models) {
+          Cart.hasMany(models.Order, {
+              foreignKey: "cart_id",
+              as: "order"
+          })
+     }
 
-    Cart.associate = function (models) {
-        Cart.belongsTo(Order, {
-            foreignKey: "order_id",
-            as: "order"
-        })
-    }
+      Cart.associate = function (models) {
+          Cart.belongsTo(models.Order, {
+              foreignKey: "order_id",
+              as: "order"
+          })
+     }
 
     return Cart;
 }

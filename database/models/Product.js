@@ -29,17 +29,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER(11),
             allowNull: false,
         },
-        inOffer: {
-            type: DataTypes.STRING(50),
-            allowNull: true,
-        },
-        inHome: {
-            type: DataTypes.STRING(50),
-            allowNull: true,
-        },
+        // inOffer: {
+        //     type: DataTypes.STRING(50),
+        //     allowNull: true,
+        // },
+        // inHome: {
+        //     type: DataTypes.STRING(50),
+        //     allowNull: true,
+        // },
         image: {
             type: DataTypes.STRING(50),
-            allowNull: false,
+            allowNull: true,
         },
     };
 
@@ -52,14 +52,14 @@ module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define(alias, cols, config);
 
     Product.associate = function (models) {
-        Product.belongsTo(Product_Category, {
+        Product.belongsTo(models.Product_Category, {
             foreignKey: "category_id",
             as: "product_category"
         })
     }
 
     Product.associate = function (models) {
-        Product.hasMany(Order, {
+        Product.hasMany(models.Order, {
             foreignKey: "product_id",
             as: "order"
         })
