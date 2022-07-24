@@ -165,16 +165,24 @@ const productsController = {
          res.redirect('/products')
     },
 
-    productDelete: (req, res) => {
-        let id = req.params.id
+    productDelete: function(req,res) {
+        db.Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/products')
+    }
+    // (req, res) => {
+    //     let id = req.params.id
 
-        const indice = products.indexOf(products.find(product => product.id == id))
+    //     const indice = products.indexOf(products.find(product => product.id == id))
 
-        products.splice(indice, 1)
+    //     products.splice(indice, 1)
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+    //     fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-        res.redirect('/products',{user:req.session.userLogged})
-    },
+    //     res.redirect('/products',{user:req.session.userLogged})
+    // }
 }
 module.exports = productsController
