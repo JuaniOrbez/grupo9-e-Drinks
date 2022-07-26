@@ -1,11 +1,30 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const User = require('../models/User');
+
+let db = require("../database/models")
+const fs = require('fs');
+const path = require('path');
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
 
     register: (req, res) => {
         res.render('./users/register')
+    },
+
+    create: (req, res) => {
+
+        db.User.create({
+            first_name: req.body.first_name,
+            last_name:req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+            category_id: req.body.category,
+            image:req.body.image,
+            age: req.body.age
+        })
+        res.redirect("/users/login")
     },
 
     login: (req, res) => {
@@ -43,7 +62,7 @@ const usersController = {
         return res.redirect('/')
     },
 
-    create: (req, res) => {
+   /*  validaciones: (req, res) => {
 
         const resultValidation = validationResult(req);
 		
@@ -54,7 +73,7 @@ const usersController = {
 			});
 		}
         
-		let userInDB = User.findByField('email', req.body.email);
+		let userInDB = db.User.findByField('email', req.body.email);
 
 		if (userInDB) {
 			return res.render('./users/register', {
@@ -73,10 +92,39 @@ const usersController = {
 			image: req.file.filename
 		}
 
-		let userCreated = User.create(userToCreate);
+		let userCreated = db.User.create(userToCreate);
 
 		return res.redirect('/users/login');
+    }, */
+
+    edit: (req, res) => {
+        db.User.findByPk(req.params.id)
+        .then(function(user){
+           res.render('./users/edit',{user})
+        })
     },
+    
+    update: (req, res) => {
+
+        db.User.update({
+            first_name: req.body.first_name,
+            last_name:req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+            category_id: req.body.category,
+            image:req.body.image,
+            age: req.body.age
+        },{
+            where: {
+                id:req.params.id
+            }
+           
+        });
+
+        res.redirect("/") 
+    },
+
+
 }
 
 module.exports = usersController

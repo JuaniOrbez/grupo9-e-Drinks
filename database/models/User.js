@@ -4,37 +4,37 @@ module.exports = (sequelize, DataTypes) => {
 
     let cols = {
         id: {
-            type: DataTypes.INTEGER(11),
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
         } ,
         first_name: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
         } ,
         last_name: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
         } ,
         email: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         password: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
         } ,
         category_id: {
-            type: DataTypes.INTEGER(11),
+            type: DataTypes.INTEGER,
             allowNull: false,
         } ,
         age: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         image: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: true,
         } ,
     };
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     User.associate = function (models) {
-        User.hasOne(models.User, {
+        User.hasOne(models.Cart, {
             foreignKey: "user_id",
             as: "cart"
         })
