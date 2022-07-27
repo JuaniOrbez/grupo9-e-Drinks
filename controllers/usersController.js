@@ -62,21 +62,27 @@ const usersController = {
         return res.redirect('/')
     },
 
-   /*  validaciones: (req, res) => {
+    validaciones: async (req, res) => {
 
         const resultValidation = validationResult(req);
 		
+        console.log("🚀 ~ file: usersController.js ~ line 72 ~ validaciones: ~ resultValidation.errors", resultValidation.errors)
+
 		if (resultValidation.errors.length > 0) {
+            console.log("Hola")
 			return res.render('./users/register', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
 		}
+        console.log("🚀 ~ file: usersController.js ~ line 73 ~ validaciones: ~ req.body", req.body)
         
-		let userInDB = db.User.findByField('email', req.body.email);
+		let userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
-		if (userInDB) {
-			return res.render('./users/register', {
+        console.log("🚀 ~ file: usersController.js ~ line 79 ~ validaciones: ~ userInDB", userInDB)
+		
+        if (userInDB) {
+            return res.render('./users/register', {
 				errors: {
 					email: {
 						msg: "Este email ya está registrado"
@@ -92,10 +98,10 @@ const usersController = {
 			image: req.file.filename
 		}
 
-		let userCreated = db.User.create(userToCreate);
+		db.User.create(userToCreate);
 
 		return res.redirect('/users/login');
-    }, */
+    }, 
 
     edit: (req, res) => {
         db.User.findByPk(req.params.id)

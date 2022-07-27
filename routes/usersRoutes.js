@@ -9,7 +9,7 @@ const upload = require ('../middlewares/multerMiddleware')
 const validationsUsersRegister = require ('../middlewares/validationsMiddleware');
 
 router.get ("/register",guestMiddleware ,usersController.register);
-router.post("/register", upload.single("image"), validationsUsersRegister, usersController.create);
+router.post("/register", upload.single("image"), validationsUsersRegister, usersController.validaciones);
 
 router.get ("/login",guestMiddleware,usersController.login);
 router.post("/login", usersController.loginProcess);
