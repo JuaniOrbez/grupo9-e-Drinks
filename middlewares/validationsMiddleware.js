@@ -9,7 +9,7 @@ const validationsUsersRegister = [
       .notEmpty().withMessage("Debes ingresar un email").bail()
       .isEmail().withMessage("Debes ingresar un formato de email válido"),
     body("password").notEmpty().withMessage("Debes ingresar una contraseña"),
-    body("category").notEmpty().withMessage("Debes seleccionar una categoría"),
+    // body("category_id").notEmpty().withMessage("Debes seleccionar una categoría"),
     body("age").notEmpty().withMessage("Debes seleccionar una opción"),
     body('image').custom((value, { req }) => {
       let file = req.file;

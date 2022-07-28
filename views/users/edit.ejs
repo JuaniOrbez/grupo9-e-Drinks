@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head')%> 
+<body>
+    <%- include('../partials/header')%> 
+
+    <main>
+        <div class="contenedor">
+            <h2>Edita el perfil</h2>
+
+            <form action="/users/<%=user.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="f-registro">
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" name="first_name"  class="barra" value="<%= user.first_name %>">
+                    <% if (locals.errors && errors.first_name) { %>
+                        <div class="text-danger">
+                            <%= errors.first_name.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label>Apellido</label>
+                    <input type="text" name="last_name"class="barra" value="<%= user.last_name %>">
+                    <% if (locals.errors && errors.last_name) { %>
+                        <div class="text-danger">
+                            <%= errors.last_name.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email"  class="barra" value="<%= user.email %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="barra" value="<%= user.password %>">
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="category">Categoría</label>
+
+                    <select name="category" id="category">
+                        <option value="1" selected>Usuario</option>
+                        <option value="2">Administrador</option>
+                      </select>
+                </div>
+                <div>
+                    <img src="/images/users/<%= user.image %>" style="width:100px">
+                    <label for="image">Imagen de Usuario</label>
+                    <input type="file" name="image" id="image" value="<%= user.image %>">
+                    <% if (locals.errors && errors.image) { %>
+                        <div class="text-danger">
+                            <%= errors.image.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label>¿Sos mayor de edad?</label>
+                    <label><input type="radio" name="age" value="YES" checked>Si</label>
+                    <label><input type="radio" name="age" value="NO">No</label>
+                    <% if (locals.errors && errors.age) { %>
+                        <div class="text-danger">
+                            <%= errors.age.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+               
+                <button type="submit" class="enviar">Guardar cambios</button>
+    
+            </form>
+        </div>
+    
+    </main>
+    
+    <%- include('../partials/footer')%> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

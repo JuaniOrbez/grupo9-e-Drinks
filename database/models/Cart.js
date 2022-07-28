@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER(11),
             allowNull: false,
         } ,
-        user_id: {
-            type: DataTypes.INTEGER(11),
-            allowNull: false,
-        } ,
         total: {
             type: DataTypes.DECIMAL(11,2),
             allowNull: false,
@@ -32,8 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     const Cart = sequelize.define(alias, cols, config);
 
     Cart.associate = function (models) {
-        Cart.hasOne(models.User, {
-            foreignKey: "user_id",
+        Cart.belongsTo(models.User, {
             as: "user"
         })
     }

@@ -1,12 +1,30 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const User = require('../models/User');
+
 let db = require("../database/models")
+const fs = require('fs');
+const path = require('path');
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
 
     register: (req, res) => {
         res.render('./users/register')
+    },
+
+    create: (req, res) => {
+
+        db.User.create({
+            first_name: req.body.first_name,
+            last_name:req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+            category_id: req.body.category,
+            image:req.body.image,
+            age: req.body.age
+        })
+        res.redirect("/users/login")
     },
 
     login: (req, res) => {
@@ -44,21 +62,27 @@ const usersController = {
         return res.redirect('/')
     },
 
-    create: (req, res) => {
+    validaciones: async (req, res) => {
 
         const resultValidation = validationResult(req);
 		
+        console.log("🚀 ~ file: usersController.js ~ line 72 ~ validaciones: ~ resultValidation.errors", resultValidation.errors)
+
 		if (resultValidation.errors.length > 0) {
+            console.log("Hola")
 			return res.render('./users/register', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
 		}
+        console.log("🚀 ~ file: usersController.js ~ line 73 ~ validaciones: ~ req.body", req.body)
         
-		let userInDB = User.findByField('email', req.body.email);
+		let userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
-		if (userInDB) {
-			return res.render('./users/register', {
+        console.log("🚀 ~ file: usersController.js ~ line 79 ~ validaciones: ~ userInDB", userInDB)
+		
+        if (userInDB) {
+            return res.render('./users/register', {
 				errors: {
 					email: {
 						msg: "Este email ya está registrado"
@@ -74,9 +98,16 @@ const usersController = {
 			image: req.file.filename
 		}
 
-		let userCreated = User.create(userToCreate);
+		db.User.create(userToCreate);
 
 		return res.redirect('/users/login');
+    }, 
+
+    edit: (req, res) => {
+        db.User.findByPk(req.params.id)
+        .then(function(user){
+           res.render('./users/edit',{user})
+        })
     },
 
 
@@ -85,7 +116,29 @@ const usersController = {
             .then(function(users) {
                 res.render('./users/usersList', {users})
             })
-     }
+     },
+
+    
+    update: (req, res) => {
+
+        db.User.update({
+            first_name: req.body.first_name,
+            last_name:req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+            category_id: req.body.category,
+            image:req.body.image,
+            age: req.body.age
+        },{
+            where: {
+                id:req.params.id
+            }
+           
+        });
+
+        res.redirect("/") 
+    },
+
 
 }
 
