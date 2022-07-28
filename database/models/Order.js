@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
+        tableName: "order",
         timestamps: false,
         underscored: true,
     };

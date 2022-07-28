@@ -1,6 +1,7 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
+let db = require("../database/models")
 
 const usersController = {
 
@@ -77,6 +78,15 @@ const usersController = {
 
 		return res.redirect('/users/login');
     },
+
+
+    usersList:(req,res) => {
+        db.User.findAll()
+            .then(function(users) {
+                res.render('./users/usersList', {users})
+            })
+     }
+
 }
 
 module.exports = usersController

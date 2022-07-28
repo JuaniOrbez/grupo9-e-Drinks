@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
+        tableName:"users",
         timestamps: false,
         underscored: true,
     };
@@ -54,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     User.associate = function (models) {
-        User.hasOne(models.User, {
+        User.hasOne(models.Cart, {
             foreignKey: "user_id",
             as: "cart"
         })

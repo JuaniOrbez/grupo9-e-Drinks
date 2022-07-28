@@ -9,17 +9,22 @@
 
     <main>
 
-        <h3 class="titulares">Categorias</h3>
-        <ul>
-            <% for (let i = 0; i<products_category.length;i++) {%>
-          <li>
-          <a href="/products/categories/<%=products_category[i].id %>"><%=products_category[i].name %> </a>
-            
-            
+        <h3 class="titulares"><%= category.name %></h3>
 
-          </li>
-        <% } %> 
-        </ul>      
+            <section class="productos"> 
+                <% products.forEach(product => { %>
+                <article class="ofer-producto">
+                    <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
+                        <p class="descripciones-ofer-producto"><a href="/products/detail/<%= product.id %>"><%= product.name %></p></a>
+                    <div class="ofer-precio-descuento">
+                        <p class="prod-precios"><%= product.price %></p>
+                        <div class="ofer-container-button-carrito">
+                                <input type="submit" value="Agregar al Carrito" class="ofer-button-carrito">
+                        </div>
+                    </div>             
+                </article>
+                <% }) %> 
+                </section>      
         
     </main>
 
@@ -40,5 +45,3 @@
 </body>
 
 </html>
-
-   

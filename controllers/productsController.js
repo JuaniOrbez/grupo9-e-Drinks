@@ -27,11 +27,24 @@ const productsController = {
 
    
      categoriesList:(req,res) => {
-        db.Product.findAll()
-            .then(function(products) {
-                res.render('./products/productCategory', {products})
+        db.Product_Category.findAll()
+            .then(function(products_category) {
+                res.render('./products/productCategory', {products_category})
             })
      },
+
+
+     categoriesDetail: (req, res) => {
+
+       let pedidoProductos = db.Product.findAll({where:{category_id: req.params.id}})
+       let pedidoCategory = db.Product_Category.findByPk(req.params.id)
+
+       Promise.all([pedidoProductos,pedidoCategory])
+         .then(function([products,category]){
+            res.render('./products/productsCategories',{products:products, category:category})
+         })
+       
+    },
 
 
     whisky: (req, res) => {
@@ -64,9 +77,7 @@ const productsController = {
          .then(function(product){
             res.render('./products/productDetail',{product:product})
          })
-        // let id = req.params.id
-        // let product = products.find(product => product.id == id)
-        // res.render('./products/productDetail', { product,user:req.session.userLogged })
+        
     },
 
     productCart: (req, res) => {
@@ -83,88 +94,53 @@ const productsController = {
            res.render('./products/productEdit',{product:product})
         })
 
-        // let id = req.params.id
-        // let product = products.find(product => product.id == id)
-        // res.render('./products/productEdit', { product,user:req.session.userLogged })
     },
 
-    productUpdate: (req, res) => {
+    productUpdate: async (req, res) => {
 
-        db.Product.update({
+        await db.Product.update({
             name: req.body.name,
             description:req.body.description,
             category_id: req.body.category,
             size: req.body.size,
             price: req.body.price,
-            image:req.body.image
+            image:req.body.image,
+            in_offer: req.body.inOffer,
+            in_home: req.body.inHome
         },{
             where: {
                 id:req.params.id
             }
            
-        });
-        // let id = req.params.id
-        // let productToEdit = products.find(product => product.id == id)
+        }).then (function(product){
+            res.redirect('/products/detail/' + req.params.id)
+        })
+        
 
-        // let image
-        // if (req.files[0] != undefined) {
-        //     image = req.files[0].filename
-        // } else {
-        //     image = productToEdit.image
-        // }
-
-        // productToEdit = { 
-        //     id: productToEdit.id,
-        //     ...req.body,
-        //     image: image,
-        // }
-
-        // let modificar = products.map(newInfo => {
-
-        //     if (newInfo.id == productToEdit.id) {
-
-        //         return newInfo = {...productToEdit }
-        //     }
-        //     return newInfo
-        // })
-
-        // fs.writeFileSync(productsFilePath, JSON.stringify(modificar));
-
-        res.redirect('/products/detail/' + req.params.id)
+        
     },
 
-    productStore: (req, res) => {
+    productStore: async (req, res) => {
 
-        db.Product.create({
+        
+        await db.Product.create({
             name: req.body.name,
             description:req.body.description,
             category_id: req.body.category,
             size: req.body.size,
             price: req.body.price,
-            image:req.body.image
-        });
-
-        // let image
-
-        // if (req.files[0] != undefined) {
-        //     image = req.files[0].filename
-        // } else {
-        //     image = 'default-image.png'
-        // }
-
-        // let newProduct = {
-        //     id: products[products.length - 1].id + 1,
-        //     ...req.body,
-        //     image: image
-        // }
-
-        // products.push(newProduct)
-
-        // fs.writeFileSync(productsFilePath, JSON.stringify(products));
-
-         res.redirect('/products')
+            image: req.file.filename,
+            in_offer: req.body.inOffer,
+            in_home: req.body.inHome
+            
+        }) 
+           .then (function(){res.redirect('/products')})
+        
+        
+        
+        
     },
-
+    
     productDelete: function(req,res) {
         db.Product.destroy({
             where: {
@@ -173,16 +149,6 @@ const productsController = {
         })
         res.redirect('/products')
     }
-    // (req, res) => {
-    //     let id = req.params.id
-
-    //     const indice = products.indexOf(products.find(product => product.id == id))
-
-    //     products.splice(indice, 1)
-
-    //     fs.writeFileSync(productsFilePath, JSON.stringify(products));
-
-    //     res.redirect('/products',{user:req.session.userLogged})
-    // }
+    
 }
 module.exports = productsController

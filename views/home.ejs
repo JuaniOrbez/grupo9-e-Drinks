@@ -64,57 +64,56 @@
             <section class="categorias"> 
             
                     <article class="producto">
-                        <a href="./products/whiskys">
-                        <img src="/images/whiskys.webp" alt="Categoria whiskys" class="imagen-producto">  
-                                          
+                        <a href="/products/categories/<%=categories[0].id %>">
+                        <img src="/images/whiskys.webp" alt="Categoria whiskys" class="imagen-producto">                  
                         <div class="descripcion-producto-home">
-                           <p class="descripciones-whiskys">Whiskys</p>  
+                          <p class="descripciones-whiskys"><%= categories[0].name %> </p> 
                         </div>
                         </a>
                     </article>
             
                     <article class="producto">
-                        <a href="./products/espumantes">
+                        <a href="/products/categories/<%=categories[1].id %>">
                         <img src="/images/espumantes.jpg" alt="Categoria espumantes" class="imagen-producto">                    
                         <div class="descripcion-producto-home">
-                           <p class="descripciones-espumantes">Espumantes</p>
+                           <p class="descripciones-espumantes"><%= categories[1].name %></p>
                         </div>
                         </a>
                     </article>
                 
                     <article class="producto">
-                        <a href="./products/cervezas">
+                        <a href="/products/categories/<%=categories[2].id %>">
                         <img src="/images/cervezas.jpg" alt=" Categoria Cervezas" class="imagen-producto">                    
                         <div class="descripcion-producto">
-                           <p class="descripciones-cervezas">Cervezas</p>
+                           <p class="descripciones-cervezas"><%= categories[2].name %></p>
                         </div>
                         </a>
                     </article>
                
                     <article class="producto">
-                        <a href="./products/gins">
+                        <a href="/products/categories/<%=categories[3].id %>">
                         <img src="/images/gin.jpg" alt=" Categoria gins" class="imagen-producto">                    
                         <div class="ddescripcion-producto-home">
-                           <p class="descripciones-gins">Gins</p>
+                           <p class="descripciones-gins"><%= categories[3].name %></p>
                         </div>
                         </a>
                     </article>
             
                     <article class="producto">
-                        <a href="./products/vinos">
+                        <a href="/products/categories/<%=categories[4].id %>">
                         <img src="/images/vinos_1.jpg" alt=" Categoria Vinos" class="imagen-producto">                    
                         <div class="descripcion-producto-home">
-                           <p class="descripciones-vinos">Vinos</p>
+                           <p class="descripciones-vinos"><%= categories[4].name %></p>
                         </div>
                         </a>
                     </article>
                 
                 
                     <article class="producto">
-                        <a href="./products/licores">
+                        <a href="/products/categories/<%=categories[5].id %>">
                         <img src="/images/licores_1.jpg" alt=" Categoria Licores" class="imagen-producto">                    
                         <div class="ddescripcion-producto-home">
-                           <p class="descripciones-licores">Licores</p>
+                           <p class="descripciones-licores"><%= categories[5].name %></p>
                         </div>
                         </a>
                     </article>
@@ -126,7 +125,7 @@
                 <img src="/images/happyhour.jpg" alt="home banner" class="ofertas-banner">
             </section>
             <section class="ofertas"> 
-                <% inOffer.forEach(product => { %>
+                <% productsInOffer.forEach(product => { %>
                 <article class="ofer-producto">
                     <img src="/images/<%= product.image %>" alt="Imagen producto" class="imagen-ofer-producto">
             
@@ -146,7 +145,7 @@
 
         <h3 class="titulares">Productos</h3>
         <section class="productos"> 
-            <% inHome.forEach(product => { %> 
+            <% productsInHome.forEach(product => { %> 
             <article class="ofer-producto">
                 <img src="/images/<%= product.image %>" alt="Imagen producto"  class="imagen-ofer-producto">
         

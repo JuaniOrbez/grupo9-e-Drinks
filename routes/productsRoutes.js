@@ -34,11 +34,13 @@ router.get ("/detail/:id/",productsController.productDetail);
 router.get ("/cart", productsController.productCart);
 
 router.get ("/create", productsController.productCreate);
-router.post ("/create", upload.any(), productsController.productStore);
+router.post ("/create", upload.single("image"), productsController.productStore);
 
 router.get ("/:id/edit", productsController.productEdit);
-router.put ("/:id/edit", upload.any(), productsController.productUpdate);
+router.put ("/:id/edit", upload.single("image"), productsController.productUpdate);
 
 router.delete('/:id/delete', productsController.productDelete); 
+
+router.get ("/categories/:id/",productsController.categoriesDetail);
 
 module.exports = router;
