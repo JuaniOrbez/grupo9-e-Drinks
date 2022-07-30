@@ -66,7 +66,6 @@ const usersController = {
 
         const resultValidation = validationResult(req);
 		
-        console.log("🚀 ~ file: usersController.js ~ line 72 ~ validaciones: ~ resultValidation.errors", resultValidation.errors)
 
 		if (resultValidation.errors.length > 0) {
             console.log("Hola")
@@ -75,11 +74,9 @@ const usersController = {
 				oldData: req.body
 			});
 		}
-        console.log("🚀 ~ file: usersController.js ~ line 73 ~ validaciones: ~ req.body", req.body)
         
 		let userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
-        console.log("🚀 ~ file: usersController.js ~ line 79 ~ validaciones: ~ userInDB", userInDB)
 		
         if (userInDB) {
             return res.render('./users/register', {
