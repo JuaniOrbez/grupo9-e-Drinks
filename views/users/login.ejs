@@ -10,13 +10,13 @@
                 <form action="/users/login" method="post" class="log-form">
                     <div>
                         <label>email</label>
-                        <input type="email" name="email" placeholder="Leodicaprio8@gmail.com" class="barra" required>
+                        <input type="email" name="email" placeholder="Ingresa tu email" class="barra" required>
                        
                     </div> 
                     
                     <div>
                         <label>Contraseña</label>
-                        <input type="password" name="password" class="barra" placeholder="Contraseña" required>
+                        <input type="password" name="password" class="barra" placeholder="Ingresa tu contraseña" required>
                     </div>
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
