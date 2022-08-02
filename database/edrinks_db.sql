@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `category_id` INT(11) NOT NULL,
   `size` VARCHAR(50) NOT NULL,
   `price` VARCHAR(50) NOT NULL,
-  `inOffer` VARCHAR(50) NULL DEFAULT NULL,
-  `inHome` VARCHAR(50) NULL DEFAULT NULL,
+  `in_offer` INT(11) NULL DEFAULT NULL,
+  `in_home` INT(11) NULL DEFAULT NULL,
   `image` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
