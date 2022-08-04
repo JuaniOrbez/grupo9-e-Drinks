@@ -6,10 +6,10 @@
 
         <div class="navBar">
             <ul class="nav">
-                <li class="item"> <a class="style-link" href="/products/whiskys">Whiskys</a> </li>
-                <li class="item"> <a class="style-link" href="/products/vinos">Vinos</a> </li>
-                <li class="item"> <a class="style-link" href="/products/cervezas">Cervezas</a> </li>
-                <li class="item"> <a class="style-link" href="/products/gins">Gin</a> </li>
+                <li class="item"> <a class="style-link" href="/products/categories/1">Whiskys</a> </li>
+                <li class="item"> <a class="style-link" href="/products/categories/5">Vinos</a> </li>
+                <li class="item"> <a class="style-link" href="/products/categories/3">Cervezas</a> </li>
+                <li class="item"> <a class="style-link" href="/products/categories/4">Gin</a> </li>
             </ul>
         </div>       
     
@@ -21,11 +21,11 @@
         
         <div class="cart-user"> 
             <% if (locals.isLogged) {%> 
-            <a class="iconos-header" href="../users/profile"><i class="fa-solid fa-user"></i> <%=user.first_name%> </a>
+            <a class="iconos-header" href="/users/profile"><i class="fa-solid fa-user"></i> <%=user.first_name%> </a>
             <% }else { %> 
-            <a class="register-log-header" href="../users/register">Register</a>
+            <a class="register-log-header" href="/users/register">Register</a>
             
-            <a class="register-log-header" href="../users/login">Login</a>
+            <a class="register-log-header" href="/users/login">Login</a>
             <% } %> 
             <a class="iconos-header" href="#"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>

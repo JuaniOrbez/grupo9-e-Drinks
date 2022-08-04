@@ -22,8 +22,7 @@ const mainController = {
 
         .then (function([productsInOffer,productsInHome,categories]){
         res.render ('home',{categories:categories, productsInOffer:productsInOffer,productsInHome:productsInHome,
-            user:req.session.userLogged
-        , inOffer,inHome},)})
+            user:req.session.userLogged},)})
     },
    error: (req, res) => {
         res.status (404).send('Not Found 404')
