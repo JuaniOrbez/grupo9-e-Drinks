@@ -12,7 +12,7 @@ const usersController = {
     register: (req, res) => {
         res.render('./users/register')
     },
-
+    
     create: (req, res) => {
 
         db.User.create({
@@ -31,13 +31,13 @@ const usersController = {
         res.render('./users/login')
     },
 
-    loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
+    loginProcess: async (req, res) => {
+        const userToLogin = await db.User.findOne({ where: { email: req.body.email } })
 
         if(userToLogin) {
             let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                        
             if(passwordIsOk) {
-
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
                     return res.redirect('/users/profile')
@@ -68,7 +68,6 @@ const usersController = {
 		
 
 		if (resultValidation.errors.length > 0) {
-            console.log("Hola")
 			return res.render('./users/register', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
@@ -91,7 +90,7 @@ const usersController = {
 
 		let userToCreate = {
 			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
+			password: bcryptjs.hashSync(req.body.password, bcryptjs.genSaltSync(10)),
 			image: req.file.filename
 		}
 
