@@ -64,3 +64,21 @@ No hacer push al reprositorio si no está funcionando la aplicación.
 # 5.Dejar de hacer
 -No hacer push al repositorio si no está funcionando la aplicación. 
 -Dividirnos sin tener en cuenta las dependencias. 
+
+/// Sprint 5 ///
+
+# 1.Comenzar a hacer
+-Entregar con mayor anticipación y tener tiempo para debuggear en conjunto
+
+# 2.Hacer más
+-Aumentar frecuencia de meetings
+
+# 3.Continuar haciendo 
+-Comunicacion fluida
+-Avisar siempre antes de pushear.
+
+# 4.Hacer menos
+-Desorganización 
+
+# 5.Dejar de hacer
+-No prever que puede haber problemas a solucionar en conjunto
