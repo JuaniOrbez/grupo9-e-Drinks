@@ -15,6 +15,7 @@ const validationsUsersRegister = [
         .isEmail().withMessage("Debes ingresar un formato de email válido"),
     check("password")
         .notEmpty()
+        .isLength({min:8})
         .withMessage("Debes ingresar una contraseña"),
     check("age")
         .notEmpty()
