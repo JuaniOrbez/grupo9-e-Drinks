@@ -1,16 +1,17 @@
 const express = require('express');
+const app = express();
+const path = require('path')
+
+const port = 3000
+
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const session = require('express-session');
 
 
-const app = express();
-
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-
-
-const path = require('path')
 const methodOverride =  require('method-override');
 
-const port = 3000
+
 
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
