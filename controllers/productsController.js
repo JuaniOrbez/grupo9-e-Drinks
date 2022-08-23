@@ -1,11 +1,11 @@
+const { validationResult } = require('express-validator');
+
+let db = require("../database/models")
 const fs = require('fs');
 const path = require('path');
-let db = require("../database/models")
-
 const productsFilePath = path.join(__dirname, '../data/products.json');
+
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
@@ -70,12 +70,12 @@ const productsController = {
         await db.Product.update({
             name: req.body.name,
             description:req.body.description,
-            category_id: req.body.category,
+            category_id: req.body.category_id,
             size: req.body.size,
             price: req.body.price,
             image:req.body.image,
-            in_offer: req.body.inOffer,
-            in_home: req.body.inHome
+            in_offer: req.body.in_offer,
+            in_home: req.body.in_home
         },{
             where: {
                 id:req.params.id
@@ -89,16 +89,24 @@ const productsController = {
 
     productStore: async (req, res) => {
 
+         const resultValidation = validationResult(req);
+		
+        if (resultValidation.errors.length > 0) {
+			return res.render('./products/productCreate', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
         
         await db.Product.create({
             name: req.body.name,
             description:req.body.description,
-            category_id: req.body.category,
+            category_id: req.body.category_id,
             size: req.body.size,
             price: req.body.price,
             image: req.file.filename,
-            in_offer: req.body.inOffer,
-            in_home: req.body.inHome
+            in_offer: req.body.in_offer,
+            in_home: req.body.in_home
             
         }) 
            .then (function(){res.redirect('/products')})
