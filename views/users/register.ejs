@@ -51,34 +51,14 @@
                         </div>
                         <div>
                             <label for="category_id">Categoría</label>
-
-                            <select name="category_id" id="category_id">
-                                <option value="1" selected>Usuario</option>
-                                <option value="2">Administrador</option>
-                            </select>
+                            <label><input type="radio" name="category_id" value="1">Usuario</label>
+                            <label><input type="radio" name="category_id" value="2">Administrador</label>
+                            <% if (locals.errors && errors.category_id) { %>
+                                <div class="text-danger">
+                                    <%= errors.category_id.msg %>
+                                </div>
+                                <% } %>
                         </div>
-
-                        <!--<div>
-                            <select name="category" id="category">
-                        <option value="">Seleccione una opción</option>
-                        <% 
-                        let options = [1,2]
-                        %>
-                        <% for (const oneOption of options) { %> 
-                        <option 
-                        value="<%= oneOption %>"
-                        <%= locals.oldData && (oneOption === oldData.category) ? 'selected' : null %>
-                        > <%= oneOption %> </option>
-                        <% } %>
-                    </select>
-                   <% if (locals.errors && errors.category) { %>
-                        <div class="text-danger">
-                            <%= errors.category.msg %> 
-                        </div>
-                    <% } %> 
-                        </div> -->
-
-
                         <div>
                             <label for="image">Imagen de Usuario</label>
                             <input type="file" name="image" id="image">

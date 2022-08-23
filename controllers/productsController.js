@@ -15,8 +15,6 @@ const productsController = {
             .then(function(products) {
                 res.render('./products/productList', { products,user:req.session.userLogged })
             })
-        
-        // res.render('./products/productList', { products,user:req.session.userLogged })
      },
 
    
@@ -40,7 +38,6 @@ const productsController = {
          })
        
     },
-
 
    
     productDetail: (req, res) => {
@@ -88,8 +85,6 @@ const productsController = {
             res.redirect('/products/detail/' + req.params.id)
         })
         
-
-        
     },
 
     productStore: async (req, res) => {
@@ -107,9 +102,6 @@ const productsController = {
             
         }) 
            .then (function(){res.redirect('/products')})
-        
-        
-        
         
     },
     

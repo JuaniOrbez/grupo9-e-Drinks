@@ -15,12 +15,12 @@ const usersController = {
     
     create: (req, res) => {
 
-        db.User.create({
+        db.User.Create({
             first_name: req.body.first_name,
             last_name:req.body.last_name,
             email: req.body.email,
             password: req.body.password,
-            category_id: req.body.category,
+            category_id: req.body.category_id,
             image:req.body.image,
             age: req.body.age
         })
