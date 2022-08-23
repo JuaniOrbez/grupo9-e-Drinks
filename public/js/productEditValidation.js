@@ -67,13 +67,13 @@ window.onload = function(){
                      errores.push(formElement)
                  }
                 
-             if ((formElement.name ==="name") && formElement.value.length < 5){
+             if ((formElement.name ==="name")&& formElement.value.length >0 && formElement.value.length < 5){
                     formElement.classList.add("isInvalid")
                     p.innerHTML= 'El campo '+ formElement.placeholder +' debe tener al menos 5 caracteres'    
                     errores.push(formElement)
                 } 
     
-              if  ((formElement.name ==="description") && formElement.value.length < 20){
+              if  ((formElement.name ==="description")&& formElement.value.length > 0 && formElement.value.length < 20){
                 formElement.classList.add("isInvalid")
                 p.innerHTML= 'El campo '+ formElement.placeholder +' debe tener al menos 20 caracteres'  
                 errores.push(formElement)
