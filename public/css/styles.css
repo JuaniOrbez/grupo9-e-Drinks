@@ -825,7 +825,7 @@ border:2px solid #333029;
 .barra {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .f-registro button {
@@ -904,7 +904,7 @@ border:2px solid #333029;
 .barra {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .text-danger {
@@ -929,8 +929,17 @@ border:2px solid #333029;
 
 /* ------------------------------------------------PRODUCT CREATION-------------------------------------------- */
 .isInvalid{
-    border-color: red;
+    border-color:#e32b2b;
 }
+
+.error{
+    font-style: italic;
+    color: #e32b2b;
+    font-size:small;
+    text-align: left;
+    margin-left: 7px;
+}
+
 /*------------------------------------MEDIA QUERIES--------------------------------------------------------*/
 
 

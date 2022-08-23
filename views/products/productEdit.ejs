@@ -11,18 +11,18 @@
                 <div>
                     <label>Nombre del producto</label>
                     <input type="text" name="name" id="name" value= "<%= product.name %>" class="barra formElement">
-                    <p id="errorname"></p>
+                    <p id="errorname" class="error"></p>
                 </div>
                 <div>
                     <label>Descripcion</label>
                     <textarea type=text name="description" id="description" class="barra formElement" placeholder= "Descripcion"><%= product.description %></textarea>
-                    <p id="errordescription"></p>
+                    <p id="errordescription" class="error"></p>
                 </div>
                 <div>
                     <img src="/images/<%= product.image %>" style="width:100px">
                     <label>Imagen del producto</label>
                     <input type="file" name="image" id="image" class="barra formElement">
-                    <p id="errorimage"></p>
+                    <p id="errorimage" class="error"></p>
                 </div>
                 <div>
                     <label>Categoria</label>
@@ -34,17 +34,17 @@
                         <option value="5">Vinos</option>
                         <option value="6">Licores</option>
                     </select>
-                    <p id="errorcategory"></p>
+                    <p id="errorcategory" class="error"></p>
                 </div>
                 <div>
                     <label>Proporcion (ml)</label>
                     <input type="text" name="size" value=<%=product.size%> class="barra formElement" placeholder="Proporcion" id="proportion">
-                    <p id="errorproportion"></p>
+                    <p id="errorproportion" class="error"></p>
                     </div>
                 <div>
                     <label>Precio ($)</label>
                     <input type="text" name="price" value=<%=product.price%> class="barra formElement" placeholder="Precio" id="price">
-                    <p id="errorprice"></p>
+                    <p id="errorprice" class="error"></p>
                 </div>
                 
                 <div>
@@ -53,7 +53,7 @@
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
-                    <p id="errorinOffer"></p>
+                    <p id="errorinOffer" class="error"></p>
                 </div>
                 <div>
                     <label for="inHome">Publicar en home</label>
@@ -61,7 +61,7 @@
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
-                    <p id="errorinHome"></p>
+                    <p id="errorinHome" class="error"></p>
                 </div>
                 <button type="submit" class="enviar">Guardar cambios</button>
             </form>
