@@ -12,22 +12,38 @@
                 <ul class="errores"></ul>
                 <div>
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" placeholder="Nombre" class="barra formElement" id="name">
+                    <input type="text" name="name" placeholder="Nombre" class="barra formElement" id="name" value="<%= locals.oldData ? oldData.name : null %>">
                     <p id="errorname"></p>
+                    <% if (locals.errors && errors.name) { %>
+                        <div class="text-danger">
+                            <%= errors.name.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
                     <label for="description">Descripción</label>
-                    <textarea type=text name="description" placeholder="Descripción" class="barra formElement" id="description" ></textarea>
+                    <input type=text name="description" placeholder="Descripción" class="barra formElement" id="description" value="<%= locals.oldData ? oldData.description : null %>">
                     <p id="errordescription" class="error"></p>
+                    <% if (locals.errors && errors.description) { %>
+                        <div class="text-danger">
+                            <%= errors.description.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
                     <label for="image">Imagen del producto</label>
                     <input type="file" name="image" id="image" class="barra formElement imagen">
                     <p id="errorimage"></p>
+                    <% if (locals.errors && errors.image) { %>
+                        <div class="text-danger">
+                            <%= errors.image.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
-                    <label for="category">Categoría</label>
-                    <select name="category" id="category" class= "barra formElement">
+                    <label for="category_id">Categoría</label>
+                    <select name="category_id" id="category_id" placeholder="Categoría" class= "barra formElement">
+                        <option value="">Elegí una categoría</option>
                         <option value="1">Whiskys</option>
                         <option value="2">Espumantes</option>
                         <option value="3">Cervezas</option>
@@ -36,16 +52,10 @@
                         <option value="6">Licores</option>
                     </select>
                     <p id="errorecategory"></p>
-                    <!-- <label><input type="radio" name="category" class="formElement"value="1" required>Whiskys</label>
-                    <label><input type="radio" name="category" value="2">Espumantes</label>
-                    <label><input type="radio" name="category" value="3" required>Cervezas</label>
-                    <label><input type="radio" name="category" value="4">Gins</label>
-                    <label><input type="radio" name="category" value="5">Vinos</label>
-                    <label><input type="radio" name="category" value="6">Licores</label> -->
                 </div>
                 <div>
-                    <label for="size">Proporcion (ml)</label>
-                    <input type="text" name="size" placeholder="Proporcion" class="barra formElement" id="proportion" >
+                    <label for="size">Proporción (ML)</label>
+                    <input type="text" name="size" placeholder="Proporción" class="barra formElement" id="proportion" >
                     <p id="errorproportion" class="error"></p>
 
                 </div>
@@ -55,24 +65,22 @@
                     <p id="errorprice" class="error"></p>
                 </div>
                 <div>
-                    <label for="inOffer">En Oferta</label>
-                    <select name="inOffer" id="inOffer" placeholder="" class="barra formElement">
+                    <label for="in_offer">En Oferta</label>
+                    <select name="in_offer" id="in_offer" placeholder="" class="barra formElement">
+                        <option value="">Elegí una opción</option>
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
                     <p id="errorinOffer" class="error"></p>
-                    <!-- <label><input type="radio" name="inOffer" value=1 required>Si</label>
-                    <label><input type="radio" name="inOffer" value= 0>No</label> -->
                 </div>
                 <div>
-                    <label for="inHome">Publicar en home</label>
-                    <select name="inHome" id="inHome" class="barra formElement">
+                    <label for="in_home">Publicar en home</label>
+                    <select name="in_home" id="in_home" class="barra formElement">
+                        <option value="">Elegí una opción</option>
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
                     <p id="errorinHome"></p>
-                    <!-- <label><input type="radio" name="inHome" value= 1 required>Si</label>
-                    <label><input type="radio" name="inHome" value= 0 >No</label> -->
                 </div>
     
                 <button type="reset" class="borrar">Borrar</button>
