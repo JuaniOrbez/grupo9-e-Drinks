@@ -12,20 +12,18 @@
                 <ul class="errores"></ul>
                 <div>
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" placeholder="Ej: Vino tinto Malbec" class="barra formElement" required>
+                    <input type="text" name="name" placeholder="Nombre" class="barra formElement" id="name">
+                    <p id="errorname"></p>
                 </div>
                 <div>
                     <label for="description">Descripción</label>
-                    <input type="text" name="description" class="barra formElement"  value="<%= locals.oldData ? oldData.description : null %>">
-                    <% if (locals.errors && errors.description) { %>
-                        <div class="text-danger">
-                            <%= errors.description.msg %>
-                        </div>
-                        <% } %>
+                    <textarea type=text name="description" placeholder="Descripción" class="barra formElement" id="description" ></textarea>
+                    <p id="errordescription" class="error"></p>
                 </div>
                 <div>
                     <label for="image">Imagen del producto</label>
-                    <input type="file" name="image" id="image" class="barra formElement">
+                    <input type="file" name="image" id="image" class="barra formElement imagen">
+                    <p id="errorimage"></p>
                 </div>
                 <div>
                     <label for="category">Categoría</label>
@@ -37,7 +35,7 @@
                         <option value="5">Vinos</option>
                         <option value="6">Licores</option>
                     </select>
-
+                    <p id="errorecategory"></p>
                     <!-- <label><input type="radio" name="category" class="formElement"value="1" required>Whiskys</label>
                     <label><input type="radio" name="category" value="2">Espumantes</label>
                     <label><input type="radio" name="category" value="3" required>Cervezas</label>
@@ -47,13 +45,14 @@
                 </div>
                 <div>
                     <label for="size">Proporcion (ml)</label>
-                    <input type="text" name="size" placeholder="Proporcion" class="barra formElement" id="proportion    " >
-                    <p id="errorproportion"></p>
+                    <input type="text" name="size" placeholder="Proporcion" class="barra formElement" id="proportion" >
+                    <p id="errorproportion" class="error"></p>
+
                 </div>
                 <div>
                     <label for="price">Precio ($)</label>
                     <input type="text" name="price" placeholder="Precio" class="barra formElement" id="price" >
-                    <p id="errorprice"></p>
+                    <p id="errorprice" class="error"></p>
                 </div>
                 <div>
                     <label for="inOffer">En Oferta</label>
@@ -61,7 +60,7 @@
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
-                    <p id="errorinOffer"></p>
+                    <p id="errorinOffer" class="error"></p>
                     <!-- <label><input type="radio" name="inOffer" value=1 required>Si</label>
                     <label><input type="radio" name="inOffer" value= 0>No</label> -->
                 </div>
@@ -71,7 +70,7 @@
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
-
+                    <p id="errorinHome"></p>
                     <!-- <label><input type="radio" name="inHome" value= 1 required>Si</label>
                     <label><input type="radio" name="inHome" value= 0 >No</label> -->
                 </div>
