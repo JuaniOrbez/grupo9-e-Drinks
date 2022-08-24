@@ -4,7 +4,7 @@ const router = express.Router();
 const productsController = require ('../controllers/productsController');
 const upload = require ('../middlewares/multerMiddleware')
 const validationsProductCreate = require ('../middlewares/validationsProductCreate');
-
+const validationsProductEdit = require ('../middlewares/validationsProductEdit');
 
 router.get ("/",productsController.productList);
 router.get("/categories",productsController.categoriesList)
