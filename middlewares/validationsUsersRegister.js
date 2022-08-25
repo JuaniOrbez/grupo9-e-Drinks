@@ -3,16 +3,16 @@ const { body } = require('express-validator');
 
 const validationsUsersRegister = [
     body("first_name")
-        .notEmpty().withMessage("Debes ingresar un nombre")
+        .notEmpty().withMessage("El campo nombre no puede estar vacío")
         .isLength({min:2}).withMessage("Debes ingresar un nombre válido"),
     body("last_name")
-        .notEmpty().withMessage("Debes ingresar un apellido")
+        .notEmpty().withMessage("El campo apellido no puede estar vacío")
         .isLength({min:2}).withMessage("Debes ingresar un apellido válido"),
     body("email")
-        .notEmpty().withMessage("Debes ingresar un email").bail()
+        .notEmpty().withMessage("El campo email no puede estar vacío").bail()
         .isEmail().withMessage("Debes ingresar un formato de email válido"),
     body("password")
-        .notEmpty().withMessage("Debes ingresar una contraseña")
+        .notEmpty().withMessage("El campo contraseña no puede estar vacío")
         .isLength({min:8}).withMessage("La contraseña debe tener un mínimo de 8 caracteres"),
     body("category_id")
         .notEmpty().withMessage("Debes seleccionar una opción"),
