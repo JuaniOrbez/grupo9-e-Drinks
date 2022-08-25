@@ -1,36 +1,80 @@
-window.addEventListener("load", function () {
+window.onload = function () {
+    const form = document.querySelector(".log-form")
+    const formElements = form.querySelectorAll(".formElement")
+    const email = document.querySelector("#email")
 
-    let formulario = document.querySelector(".log-form")
+    email.focus()
 
-    formulario.addEventListener("submit", (e) => {
-        let errores = [];
+    formElements.forEach(formElement => formElement.addEventListener('blur', e => {
 
-        let campoEmail = document.querySelector("#email")
+        const element = e.srcElement
+        const p = document.querySelector("#error" + element.id)
+        const backError = document.querySelector("#backError" + element.id)
 
-        const expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-        const esValido = expReg.test(campoEmail.value)
+        if (backError) {
+            backError.parentNode.removeChild(backError)
+        }
 
-        if (campoEmail.value == "") {
-            errores.push("Email vacio")
-        } else if (esValido == false) {
-            errores.push("El email debe ser valido")}
+        let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+        let esValido = expReg.test(element.value)
 
 
-        let campoPassword = document.querySelector("#password")
-        if (campoPassword.value == "") {
-            errores.push("Contraseña vacia")
-        } else if (campoPassword.value.length < 5) {
-            errores.push("La contraseña debe tener al menos 5 caracteres")
+        if (element.value === "") {
+            p.innerHTML = 'El campo ' + element.placeholder + ' no puede estar vacio'
+            element.classList.add("isInvalid")
+
+        }
+
+        else if (element.name === "password" && element.value.length < 8) {
+            p.innerHTML = 'El campo ' + element.placeholder + ' debe tener al menos 8 caracteres'
+            element.classList.add("isInvalid")
+
+        }
+
+        else if (element.name === "email" && esValido == false) {
+            p.innerHTML = "El email debe ser valido"
+            element.classList.add("isInvalid")
         }
 
 
-        if (errores.length > 0) {
-            e.preventDefault()
-            let ulErrores = document.querySelector("div.errores ul")
-            for (let i = 0; i < errores.length; i++) {
-                ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
+        else {
+            element.classList.remove("isInvalid")
+            p.innerHTML = ""
+        }
+
+    }))
+
+    form.addEventListener("submit", (e) => {
+        let errores = []
+
+        formElements.forEach(formElement => {
+            const p = document.querySelector("#error" + formElement.id)
+
+            if (formElement.value === "") {
+                formElement.classList.add("isInvalid")
+                p.innerHTML = 'El campo ' + formElement.placeholder + ' no puede estar vacio'
+                errores.push(formElement)
             }
+
+            if (formElement.name === "password" && formElement.value.length > 0 && formElement.value.length < 8) {
+                formElement.classList.add("isInvalid")
+                p.innerHTML = 'El campo ' + formElement.placeholder + ' debe tener al menos 8 caracteres'
+                errores.push(formElement)
+            }
+
+            if (formElement.name === "email" && esValido == false) {
+                formElement.classList.add("isInvalid")
+                p.innerHTML = "El email debe ser valido"
+                errores.push(formElement)
+            }
+
+        })
+
+        if (errores.length > 0) {
+            console.log("no send form")
+            e.preventDefault()
         }
 
     })
-})
+
+}
