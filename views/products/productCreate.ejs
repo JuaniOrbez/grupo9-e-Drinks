@@ -13,19 +13,21 @@
                 <div>
                     <label for="name">Nombre del producto</label>
                     <input type="text" name="name" placeholder="Nombre" class="barra formElement" id="name" value="<%= locals.oldData ? oldData.name : null %>">
-                    <p id="errorname"></p>
-                    <% if (locals.errors && errors.name) { %>
-                        <div class="text-danger">
-                            <%= errors.name.msg %>
-                        </div>
-                        <% } %>
+                    <p id="errorname" class="error"></p>
+
+                        <% if (locals.errors && errors.name) { %>
+                            <div id="backErrorname" class="error">
+                                <%= errors.name.msg %>
+                            </div>
+                            <% } %>
+                    
                 </div>
                 <div>
                     <label for="description">Descripción</label>
                     <input type=text name="description" placeholder="Descripción" class="barra formElement" id="description" value="<%= locals.oldData ? oldData.description : null %>">
                     <p id="errordescription" class="error"></p>
                     <% if (locals.errors && errors.description) { %>
-                        <div class="text-danger">
+                        <div id="backErrordescription" class="error">
                             <%= errors.description.msg %>
                         </div>
                         <% } %>
@@ -33,9 +35,9 @@
                 <div>
                     <label for="image">Imagen del producto</label>
                     <input type="file" name="image" id="image" class="barra formElement imagen">
-                    <p id="errorimage"></p>
+                    <p id="errorimage" class="error"></p>
                     <% if (locals.errors && errors.image) { %>
-                        <div class="text-danger">
+                        <div id="backErrorimage" class="error">
                             <%= errors.image.msg %>
                         </div>
                         <% } %>

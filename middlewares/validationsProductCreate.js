@@ -3,18 +3,18 @@ const { body } = require('express-validator');
 
 const validationsProductCreate = [
     body("name")
-        .notEmpty().withMessage("Debes ingresar el nombre del producto")
-        .isLength({min:5}).withMessage("El nombre del producto debe tener un mínimo de 5 caracteres"),
+        .notEmpty().withMessage("El campo Nombre no puede estar vacio")
+        .isLength({min:5}).withMessage("El campo Nombre debe tener al menos 5 caracteres"),
     body("description")
-        .notEmpty().withMessage("Debes agregar una descripción del producto")
-        .isLength({min:20}).withMessage("La descripción debe tener un mínimo de 20 caracteres"),
+        .notEmpty().withMessage("El campo Descripción no puede estar vacio")
+        .isLength({min:20}).withMessage("La Descripción debe tener un mínimo de 20 caracteres"),
     body('image')
         .custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
     
         if (!file) {
-          throw new Error('Debes cargar una imagen para el producto');
+          throw new Error('El campo Imagen no puede estar vacio');
         } else {
           let fileExtension = path.extname(file.originalname);
           if (!acceptedExtensions.includes(fileExtension)) {

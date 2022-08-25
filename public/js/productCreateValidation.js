@@ -17,33 +17,37 @@ name.focus()
         
         const element = e.srcElement
         const p = document.querySelector("#error" + element.id)
-        
+        const backError =document.querySelector("#backError" + element.id)
+        console.log("🚀 ~ file: productCreateValidation.js ~ line 21 ~ backError", backError)
+    if (backError){
+        backError.parentNode.removeChild(backError)
+    }   
     if (element.value ==="" && element.name === "image"){
         p.innerHTML = 'El archivo '+ element.placeholder +' debe ser un archivo válido (JPG, JPEG, PNG, GIF)'
             element.classList.add("isInvalid")
-            emptyElements.push(formElement)
+            
         }
         
         else if (element.value ==="" ){
             p.innerHTML = 'El campo '+ element.placeholder +' no puede estar vacio'
             element.classList.add("isInvalid")
-            emptyElements.push(formElement)
+            
         }
         else if((element.name === "name") && element.value.length < 5){
             p.innerHTML = 'El campo '+ element.placeholder +' debe tener al menos 5 caracteres'
             element.classList.add("isInvalid")
-            emptyElements.push(formElement)
+            
         }
         
         else if((element.name === "description") && element.value.length < 20){
             p.innerHTML = 'El campo '+ element.placeholder +' debe tener al menos 20 caracteres'
             element.classList.add("isInvalid")
-            emptyElements.push(formElement)
+            
         }
         else if((element.name === "image")){
             p.innerHTML = 'El archivo '+ element.placeholder +' debe ser un archivo válido (JPG, JPEG, PNG, GIF)'
             element.classList.add("isInvalid")
-            emptyElements.push(formElement)
+            
         }
         
         else{
@@ -83,8 +87,7 @@ name.focus()
         if(errores.length >0){
             console.log("no send form")
             e.preventDefault()
-        }
-        
+        } 
 
         })
 
