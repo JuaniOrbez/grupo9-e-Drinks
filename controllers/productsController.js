@@ -70,7 +70,7 @@ const productsController = {
         const resultValidation = validationResult(req);
 		
         if (resultValidation.errors.length > 0) {
-			return res.render('./products/productList', {
+			return res.render('./products/productEdit', {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
