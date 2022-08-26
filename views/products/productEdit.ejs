@@ -6,27 +6,42 @@
 
     <main>
         <div class="contenedor">
-            <h2>Editando <%=product.name %></h2>
-            <form action="/products/<%=product.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="f-registro">
+            <h2>Editando <%= product.name %></h2>
+            <form action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="f-registro">
                 <div>
                     <label>Nombre del producto</label>
                     <input type="text" name="name" id="name" value= "<%= product.name %>" class="barra formElement">
                     <p id="errorname" class="error"></p>
+                    <% if (locals.errors && errors.name) { %>
+                        <div id="backErrorname" class="error">
+                            <%= errors.name.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
                     <label>Descripcion</label>
                     <textarea type=text name="description" id="description" class="barra formElement" placeholder= "Descripcion"><%= product.description %></textarea>
                     <p id="errordescription" class="error"></p>
+                    <% if (locals.errors && errors.description) { %>
+                        <div id="backErrorname" class="error">
+                            <%= errors.description.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
                     <img src="/images/<%= product.image %>" style="width:100px">
                     <label>Imagen del producto</label>
                     <input type="file" name="image" id="image" class="barra formElement">
                     <p id="errorimage" class="error"></p>
+                    <% if (locals.errors && errors.image) { %>
+                        <div id="backErrorname" class="error">
+                            <%= errors.image.msg %>
+                        </div>
+                        <% } %>
                 </div>
                 <div>
-                    <label>Categoria</label>
-                    <select name="category" id="category" class= "barra formElement">
+                    <label for="category_id">Categoría</label>
+                    <select name="category_id" id="category_id" placeholder="Categoría" class= "barra formElement">
                         <option value="1">Whiskys</option>
                         <option value="2">Espumantes</option>
                         <option value="3">Cervezas</option>
@@ -37,7 +52,7 @@
                     <p id="errorcategory" class="error"></p>
                 </div>
                 <div>
-                    <label>Proporción (ml)</label>
+                    <label>Proporción (ML)</label>
                     <input type="text" name="size" value=<%=product.size%> class="barra formElement" placeholder="Proporción" id="proportion">
                     <p id="errorproportion" class="error"></p>
                     </div>
@@ -48,16 +63,16 @@
                 </div>
                 
                 <div>
-                    <label for="inOffer">En Oferta</label>
-                    <select name="inOffer" id="inOffer" class="barra formElement">
+                    <label for="in_offer">En Oferta</label>
+                    <select name="in_offer" id="in_offer" class="barra formElement">
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
                     <p id="errorinOffer" class="error"></p>
                 </div>
                 <div>
-                    <label for="inHome">Publicar en home</label>
-                    <select name="inHome" id="inHome" class="barra formElement">
+                    <label for="in_home">Publicar en home</label>
+                    <select name="in_home" id="in_home" class="barra formElement">
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>

@@ -67,6 +67,15 @@ const productsController = {
 
     productUpdate: async (req, res) => {
 
+        const resultValidation = validationResult(req);
+		
+        if (resultValidation.errors.length > 0) {
+			return res.render('./products/productEdit', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
+
         await db.Product.update({
             name: req.body.name,
             description:req.body.description,
@@ -81,9 +90,7 @@ const productsController = {
                 id:req.params.id
             }
            
-        }).then (function(product){
-            res.redirect('/products/detail/' + req.params.id)
-        })
+        }).then (function(){res.redirect('/products/detail/' + req.params.id)})
         
     },
 

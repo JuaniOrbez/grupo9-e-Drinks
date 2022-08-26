@@ -9,46 +9,56 @@
                 <div class="contenedor">
                     <h2>Registrate</h2>
 
-                    <div class="errores">
-                        <ul></ul>
-                    </div>
+                    
 
                     <form action="/users/register" method="POST" enctype="multipart/form-data" class="f-registro">
                         <div>
                             <label>Nombre</label>
-                            <input type="text" name="first_name" class="barra" id="nombre"
+                            <input type="text" placeholder="nombre" name="first_name" class="barra formElement" id="name"
                                 value="<%= locals.oldData ? oldData.first_name : null %>">
+
+                                <p id="errorname" class="error"></p>
+
                             <% if (locals.errors && errors.first_name) { %>
-                                <div class="text-danger">
+                                <div id="backErrorname" class="error">
                                     <%= errors.first_name.msg %>
                                 </div>
                                 <% } %>
                         </div>
                         <div>
                             <label>Apellido</label>
-                            <input type="text" name="last_name" class="barra" id="apellido"
+                            <input type="text" placeholder="apellido" name="last_name" class="barra formElement" id="last_name"
                                 value="<%= locals.oldData ? oldData.last_name : null %>">
+
+                                <p id="errorlast_name" class="error"></p>
+
                             <% if (locals.errors && errors.last_name) { %>
-                                <div class="text-danger">
+                                <div id="backErrorlast_name" class="error">
                                     <%= errors.last_name.msg %>
                                 </div>
                                 <% } %>
                         </div>
                         <div>
                             <label>Email</label>
-                            <input type="email" name="email" class="barra" id="email"
+                            <input type="email" placeholder="email" name="email" class="barra formElement" id="email"
                                 value="<%= locals.oldData ? oldData.email : null %>">
+
+                                <p id="erroremail" class="error"></p>
+
                             <% if (locals.errors && errors.email) { %>
-                                <div class="text-danger">
+                                <div id="backErroremail" class="error">
                                     <%= errors.email.msg %>
                                 </div>
                                 <% } %>
                         </div>
                         <div>
                             <label>Contraseña</label>
-                            <input type="password" name="password" class="barra" id="password">
+                            <input type="password" placeholder="contraseña" name="password" class="barra formElement" id="password">
+
+                            <p id="errorpassword" class="error"></p>
+
                             <% if (locals.errors && errors.password) { %>
-                                <div class="text-danger">
+                                <div id="backErrorpassword" class="error">
                                     <%= errors.password.msg %>
                                 </div>
                                 <% } %>
@@ -58,16 +68,19 @@
                             <label><input type="radio" name="category_id" value="1">Usuario</label>
                             <label><input type="radio" name="category_id" value="2">Administrador</label>
                             <% if (locals.errors && errors.category_id) { %>
-                                <div class="text-danger">
+                                <div id="backErrorcategory_id" class="error">
                                     <%= errors.category_id.msg %>
                                 </div>
                                 <% } %>
                         </div>
                         <div>
                             <label for="image">Imagen de Usuario</label>
-                            <input type="file" name="image" id="image">
+                            <input type="file" name="image" id="image" class="barra formElement">
+
+                            <p id="errorimage" class="error"></p>
+
                             <% if (locals.errors && errors.image) { %>
-                                <div class="text-danger">
+                                <div id="backErrorimage" class="error">
                                     <%= errors.image.msg %>
                                 </div>
                                 <% } %>
@@ -77,7 +90,7 @@
                             <label><input type="radio" name="age" value="YES">Si</label>
                             <label><input type="radio" name="age" value="NO">No</label>
                             <% if (locals.errors && errors.age) { %>
-                                <div class="text-danger">
+                                <div id="backErrorage"class="error">
                                     <%= errors.age.msg %>
                                 </div>
                                 <% } %>

@@ -14,13 +14,11 @@
                     <label for="name">Nombre del producto</label>
                     <input type="text" name="name" placeholder="Nombre" class="barra formElement" id="name" value="<%= locals.oldData ? oldData.name : null %>">
                     <p id="errorname" class="error"></p>
-
                         <% if (locals.errors && errors.name) { %>
                             <div id="backErrorname" class="error">
                                 <%= errors.name.msg %>
                             </div>
                             <% } %>
-                    
                 </div>
                 <div>
                     <label for="description">Descripción</label>
@@ -45,7 +43,6 @@
                 <div>
                     <label for="category_id">Categoría</label>
                     <select name="category_id" id="category_id" placeholder="Categoría" class= "barra formElement">
-                        <option value="">Elegí una categoría</option>
                         <option value="1">Whiskys</option>
                         <option value="2">Espumantes</option>
                         <option value="3">Cervezas</option>
@@ -69,7 +66,6 @@
                 <div>
                     <label for="in_offer">En Oferta</label>
                     <select name="in_offer" id="in_offer" placeholder="" class="barra formElement">
-                        <option value="">Elegí una opción</option>
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
@@ -78,7 +74,6 @@
                 <div>
                     <label for="in_home">Publicar en home</label>
                     <select name="in_home" id="in_home" class="barra formElement">
-                        <option value="">Elegí una opción</option>
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>

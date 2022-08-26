@@ -29,7 +29,7 @@ name.focus()
         }
         
         else if (element.value ==="" ){
-            p.innerHTML = 'El campo '+ element.placeholder +' no puede estar vacio'
+            p.innerHTML = 'El campo '+ element.placeholder +' no puede estar vacío'
             element.classList.add("isInvalid")
             
         }
@@ -67,7 +67,7 @@ name.focus()
 
            if(formElement.value ===""){  
             formElement.classList.add("isInvalid")
-            p.innerHTML = 'El campo ' + formElement.placeholder + ' no puede estar vacio'
+            p.innerHTML = 'El campo ' + formElement.placeholder + ' no puede estar vacío'
                  errores.push(formElement)
              }
             

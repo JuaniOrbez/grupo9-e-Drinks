@@ -8,26 +8,28 @@
         <div class="log-cont">
                 <h2>Ingresa</h2>
 
-                <div class="errores">
-                    <ul></ul>
-                </div>
-
                 <form action="/users/login" method="post" class="log-form">
                     <div>
                         <label>email</label>
-                        <input type="email" id = "email" name="email" placeholder="Ingresa tu email" class="barra" required>
+                        <input type="email" id = "email" name="email" placeholder="email" class="barra formElement" required>
                        
+                        <p id="erroremail" class="error"></p>
+
                     </div> 
                     
                     <div>
                         <label>Contraseña</label>
-                        <input type="password"  id = "password" name="password" class="barra" placeholder="Ingresa tu contraseña" required>
+                        <input type="password"  id = "password" name="password" class="barra formElement" placeholder="contraseña" required>
+
+                        <p id="errorpassword" class="error"></p>
+
+                        <% if (locals.errors && errors.email) { %>
+                            <div id="backErrorpassword" class="error">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
                     </div>
-                    <% if (locals.errors && errors.email) { %>
-                        <div class="text-danger">
-                            <%= errors.email.msg %>
-                        </div>
-                    <% } %>
+
                     <button type="submit" class="enviar">Ingresa</button>
                     <p>¿No tenes una cuenta? <a href="./register">Registrate</a></p>
                 </form>
@@ -45,4 +47,3 @@
 <scrpt type = "text/javascript" src="/public/js/userLoginValidation.js"></scrpt>
 </body>
 </html>
-
