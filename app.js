@@ -16,6 +16,7 @@ const methodOverride =  require('method-override');
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
+const productsApiRoutes = require('./apis/routes/productsApiRoutes')
 
 app.use(session({
     secret: "secreto",
@@ -41,3 +42,5 @@ app.set('view engine', 'ejs');
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 app.use('/', mainRoutes);
+
+app.use('/productsApi',productsApiRoutes);
