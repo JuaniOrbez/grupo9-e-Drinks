@@ -18,7 +18,7 @@ name.focus()
         const element = e.srcElement
         const p = document.querySelector("#error" + element.id)
         const backError =document.querySelector("#backError" + element.id)
-        console.log("🚀 ~ file: productCreateValidation.js ~ line 21 ~ backError", backError)
+        
     if (backError){
         backError.parentNode.removeChild(backError)
     }   
