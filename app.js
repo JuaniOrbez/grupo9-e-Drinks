@@ -17,6 +17,7 @@ const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const productsApiRoutes = require('./api/routes/productsApiRoutes')
+const usersApiRoutes = require('./api/routes/usersApiRoutes')
 
 app.use(session({
     secret: "secreto",
@@ -41,6 +42,7 @@ app.set('view engine', 'ejs');
 
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
-app.use('/api',productsApiRoutes);
+app.use('/apiProducts', productsApiRoutes);
+app.use('/apiUsers', usersApiRoutes);
 app.use('/', mainRoutes);
 
