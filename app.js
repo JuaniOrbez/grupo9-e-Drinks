@@ -41,6 +41,6 @@ app.set('view engine', 'ejs');
 
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
-app.use('/apis',productsApiRoutes);
+app.use('/api',productsApiRoutes);
 app.use('/', mainRoutes);
 
