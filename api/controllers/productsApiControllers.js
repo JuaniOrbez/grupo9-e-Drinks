@@ -7,20 +7,26 @@ module.exports = {
     
     
     list: (req, res) =>{
-        db.Product
-        .findAll()
-        .then(products =>{
-            return res.json({
+      let pedidoProductos = db.Product.findAll({
+        attributes:["id","name","description", ]
+      })
+      let countBycategory = db.Product.findAll({
+        group:["category_id"],
+        attributes:["category_id",[db.Sequelize.fn("COUNT",db.Sequelize.col("category_id")),"countByCategory"]]
+      })
+
+      Promise.all([pedidoProductos,countBycategory])
+        .then(function([products,count]){
+            res.json({
                 count: products.length,
-                url:'api/products',
-                data: products,
-            }
-               )
+                data:products,
+                countBycategory: count
+            })
         })
 
-        
-    },
 
+    },
+   
     detail:  (req, res) =>{
         db.Product
         .findByPk(req.params.id)
