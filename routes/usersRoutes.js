@@ -21,5 +21,7 @@ router.get("/usersList",usersController.usersList )
 
 router.get ("/:id/edit", usersController.edit);
 router.put ("/:id/edit", upload.single("image"), usersController.update);
-  
+
+
+
 module.exports = router;

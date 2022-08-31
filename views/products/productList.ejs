@@ -25,7 +25,9 @@
                 </article>
                 <% }) %> 
                 </section>      
-        
+                <% if (locals.isLogged) {%>      
+                    <a href="/products/create"><input type="submit" value="Crear nuevo producto"class="button-carrito"></a>
+                    <% }%>
     </main>
 
     <%- include('../partials/footer')%>

@@ -21,7 +21,7 @@ const productsController = {
      categoriesList:(req,res) => {
         db.Product_Category.findAll()
             .then(function(categories) {
-                res.render('./products/productCategory', {categories:categories})
+                res.render('./products/productCategory', {categories:categories,user:req.session.userLogged})
             })
      },
 
@@ -34,7 +34,7 @@ const productsController = {
 
        Promise.all([pedidoProductos,pedidoCategory,pedidoCategories])
          .then(function([products,category,categories]){
-            res.render('./products/productsCategories',{products:products, category:category, categories:categories})
+            res.render('./products/productsCategories',{products:products, category:category, categories:categories,user:req.session.userLogged})
          })
        
     },
@@ -44,7 +44,7 @@ const productsController = {
 
         db.Product.findByPk(req.params.id)
          .then(function(product){
-            res.render('./products/productDetail',{product:product})
+            res.render('./products/productDetail',{product:product,user:req.session.userLogged})
          })
         
     },

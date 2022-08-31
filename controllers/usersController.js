@@ -24,7 +24,7 @@ const usersController = {
             image:req.body.image,
             age: req.body.age
         })
-        res.redirect("/users/login")
+        res.redirect("/users/profile")
     },
 
     login: (req, res) => {
@@ -35,21 +35,36 @@ const usersController = {
         const userToLogin = await db.User.findOne({ where: { email: req.body.email } })
 
         if(userToLogin) {
-            let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-                        
-            if(passwordIsOk) {
-                    delete userToLogin.password;
+            if (!bcryptjs.compareSync(req.body.password, userToLogin.password)){
+           
+            
+            delete userToLogin.password;
                     req.session.userLogged = userToLogin;
                     return res.redirect('/users/profile')
-                }
-        }
-        return res.render('./users/login', {
-            errors: {
-                email: {
-                    msg: 'Credenciales invalidas, por favor chequea tu usuario y contraseña'
-                }
             }
-        });
+            else{
+                return res.render('./users/login', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales invalidas, por favor chequea tu usuario y contraseña'
+                        }
+                    }
+                })
+            }    
+           
+        }
+
+        else {
+            return res.render('./users/login', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales invalidas, por favor chequea tu usuario y contraseña'
+                        }
+                    }
+                });
+
+        }
+         
 },
 	profile:  (req, res) => {
         res.render('./users/profile', {

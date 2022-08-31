@@ -5,11 +5,19 @@
     <%- include('../partials/header')%> 
 
     <main>
+        <br>
+        <br>
+
+    <form action="/users/logout" method="GET" enctype="multipart/form-data" class="f-registro">
         <div class="log-cont">
-                <h2>Bienvenido <%=user.first_name%>! </h2>
-                <div class ="profileImage"> <img src="/images/users/<%=user.image %> " alt="user-images"></div>
-                
-    </div>
+            <h2>Bienvenido <%=user.first_name%>! </h2>
+            <br>
+            <div class ="profileImage"> <img src="/images/users/<%=user.image %> " alt="user-images"></div>
+            
+</div>
+        
+        <button type="submit" class="enviar">Cerrar sesion</button>
+    </form>
         </main>
     
         <%- include('../partials/footer')%> 
