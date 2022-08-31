@@ -1,6 +1,6 @@
 let db = require("../../database/models")
 const Op = db.Sequelize.Op;
-const http = 'http://localhost/3000'
+const http = 'http://localhost:3000'
 
 module.exports = {
     
@@ -19,10 +19,12 @@ module.exports = {
 
     detail:  (req, res) =>{
         db.User
-        .findByPk(req.params.id)
+        .findByPk(req.params.id,{
+            attributes:["id","first_name","last_name","email",[db.Sequelize.fn("CONCAT", http+'/images/', db.Sequelize.col("image")) ,"image"]]
+        })
         .then(user =>{
             return res.json({
-                data: ([user.id, user.first_name, user.last_name, user.email]),
+                data: user,
             }
                )
         })    

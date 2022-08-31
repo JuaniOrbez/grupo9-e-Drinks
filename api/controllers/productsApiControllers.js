@@ -1,6 +1,6 @@
 let db = require("../../database/models")
 const Op = db.Sequelize.Op;
-const http = 'http://localhost/3000'
+const http = 'http://localhost:3000'
 
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     
     list: (req, res) =>{
       let pedidoProductos = db.Product.findAll({
-        attributes:["id","name","description", [db.Sequelize.fn("CONCAT", http+'/apiProducts/products/', db.Sequelize.col("id")) ,"detail"] ]
+        attributes:["id","name","description", [db.Sequelize.fn("CONCAT", http+'/apiProducts/products/', db.Sequelize.col("id")) ,"detail"],"image" ]
       })
       let countBycategory = db.Product.findAll({
         group:["category_id"],
@@ -29,7 +29,9 @@ module.exports = {
    
     detail:  (req, res) =>{
         db.Product
-        .findByPk(req.params.id)
+        .findByPk(req.params.id,{
+            attributes:["id","name","description","category_id","size","price","in_offer","in_home",[db.Sequelize.fn("CONCAT", http+'/images/', db.Sequelize.col("image")) ,"image"]]
+        })
         .then(product =>{
             return res.json({
                 data: product,
