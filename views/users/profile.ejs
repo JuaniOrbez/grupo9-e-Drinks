@@ -11,9 +11,10 @@
         <div class="log-cont">
         <form action="/users/logout" method="GET" enctype="multipart/form-data" class="f-registro">
             <h2>Bienvenido <%=user.first_name%>! </h2>
-            <br>
-            <img src="/images/<%=user.image %>" class ="profileImage" alt="user-images"> 
             
+            
+            <img src="/images/<%=user.image %>" class ="profileImage" alt="user-images"> 
+            <h5>Estas loggeado como <% if (user.category_id === 2 ) {%> Admin <%}else {%> Usuario<% }%></h5> 
             <button type="submit" class="enviar">Cerrar sesion</button>
         </form>
     </div>

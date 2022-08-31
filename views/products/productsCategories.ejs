@@ -26,7 +26,7 @@
                 <% }) %> 
                 <br>
             </section>
-            <% if (locals.isLogged) {%>      
+            <% if (locals.isLogged && user.category_id === 2 ) {%>      
             <a href="/products/create"><input type="submit" value="Crear nuevo producto"class="button-carrito"></a>
             <% }%>
     </main>

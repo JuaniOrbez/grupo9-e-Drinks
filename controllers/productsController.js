@@ -50,7 +50,7 @@ const productsController = {
     },
 
     productCart: (req, res) => {
-        res.render('./products/productCart')
+        res.render('./products/productCart',{user:req.session.userLogged})
     },
 
     productCreate: (req, res) => {
@@ -60,7 +60,7 @@ const productsController = {
     productEdit: (req, res) => {
         db.Product.findByPk(req.params.id)
         .then(function(product){
-           res.render('./products/productEdit',{product:product})
+           res.render('./products/productEdit',{product:product,user:req.session.userLogged})
         })
 
     },

@@ -34,7 +34,7 @@
                         <br>
                         <a href="/products/"><input type="submit" value="Listado de productos"class="button-carrito"></a>
                         <br>
-                        <% if (locals.isLogged) {%>
+                        <% if (locals.isLogged && user.category_id === 2 ) {%>
                         <a href="/products/<%= product.id %>/edit"><input type="submit" value="Editar producto"class="button-carrito"></a>
                         <% }%>
                         
