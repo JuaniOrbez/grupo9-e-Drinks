@@ -8,16 +8,15 @@
         <br>
         <br>
 
-    <form action="/users/logout" method="GET" enctype="multipart/form-data" class="f-registro">
         <div class="log-cont">
+        <form action="/users/logout" method="GET" enctype="multipart/form-data" class="f-registro">
             <h2>Bienvenido <%=user.first_name%>! </h2>
             <br>
-            <div class ="profileImage"> <img src="/images/users/<%=user.image %> " alt="user-images"></div>
+            <img src="/images/<%=user.image %>" class ="profileImage" alt="user-images"> 
             
-</div>
-        
-        <button type="submit" class="enviar">Cerrar sesion</button>
-    </form>
+            <button type="submit" class="enviar">Cerrar sesion</button>
+        </form>
+    </div>
         </main>
     
         <%- include('../partials/footer')%> 
